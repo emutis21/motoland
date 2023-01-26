@@ -1,0 +1,97 @@
+@import "./Variables.scss";
+// Base
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: $body-font;
+  font-size: $normal-font-size;
+  background-color: $body-color;
+  color: $text-color;
+}
+h1,
+h2,
+h3 {
+  color: $title-color;
+  font-weight: $font-semi-bold;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+.title {
+  margin: 4rem 0;
+  text-align: center;
+}
+.container {
+  margin-right: 1.5rem;
+  margin-left: 1.5rem;
+  h1 {
+    padding-top: 4rem;
+    text-align: center;
+    margin: 2rem;
+  }
+}
+.msg {
+  background-color: red;
+  padding: 1rem;
+  margin: 2rem 0;
+  border-radius: 2rem;
+}
+button {
+  cursor: pointer;
+  padding: 0.3rem 1.7rem;
+  margin: 0.35rem;
+  border: 1px solid $second-color;
+  border-radius: 0.8rem;
+  background-color: transparent;
+  color: $white-color;
+  font-size: $h3-font-size;
+  font-weight: $font-semi-bold;
+  transition: all 0.35s;
+  &:hover {
+    cursor: pointer;
+    transition: all 0.35s;
+    background-color: $second-color;
+    color: $white-color;
+    transform: scale(1.01);
+  }
+}
+.button {
+  cursor: pointer;
+  padding: 0.3rem 1.7rem;
+  margin: 0.35rem;
+  border: 1px solid $second-color;
+  border-radius: 0.8rem;
+  background-color: transparent;
+  color: $white-color;
+  font-size: $h3-font-size;
+  font-weight: $font-semi-bold;
+  transition: all 0.35s;
+  &:hover {
+    cursor: pointer;
+    transition: all 0.35s;
+    background-color: $second-color;
+    color: $white-color;
+    transform: scale(1.01);
+  }
+}
+input {
+  color: $white-color;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

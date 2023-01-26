@@ -1,0 +1,140 @@
+@import "./Variables.scss";
+.motos {
+  display: flex;
+  overflow: auto;
+  scroll-snap-type: initial;
+  padding: 1.3rem 0;
+  li {
+    flex: 0 0 30%;
+    scroll-snap-align: start;
+    text-align: center;
+    font-weight: $font-semi-bold;
+    .add {
+      background-color: transparent;
+      border: none;
+      padding: 0;
+      font-size: x-large;
+      color: $second-color;
+    }
+    .img {
+      border: none;
+      &:hover {
+        background-color: transparent;
+      }
+      img {
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        width: 40rem;
+        filter: drop-shadow(1px 1px 0.09rem $text-color-ligth);
+        transition: all 0.3s;
+        &:hover {
+          scale: 1.04;
+          transition: all 0.15s;
+          filter: drop-shadow(1px 1px 0.2rem $text-color);
+        }
+      }
+    }
+  }
+}
+.cart {
+  div {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+  ul {
+    display: flex;
+    justify-content: center;
+    li {
+      flex: 0 0 20%;
+      border: 0.1rem solid $white-color;
+      padding: 1rem;
+      border-radius: 0.4rem;
+      margin: 0.2rem;
+      div {
+        display: grid;
+        place-items: center;
+      }
+      .buttons {
+        > * {
+          font-size: 90%;
+        }
+      }
+    }
+  }
+}
+
+.form {
+  margin-top: 1rem;
+  display: grid;
+  place-items: center;
+  padding: 2rem 0;
+  width: 35%;
+  float: right;
+  border-radius: 0.4rem;
+  border: 0.3rem solid $second-color;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  background-color: $body-color;
+  z-index: 100;
+  h3 {
+    margin: 0.8rem;
+  }
+  .modal-content {
+    display: grid;
+    place-items: center;
+  }
+  form {
+    display: grid;
+    place-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    input {
+      max-width: 18rem;
+      background-color: transparent;
+      border: 0;
+      border-bottom: 0.1rem solid $text-color-ligth;
+      font-size: 1rem;
+      padding: 0.1rem;
+      text-align: center;
+    }
+  }
+}
+
+.modal-container {
+  height: auto;
+  width: 35%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border: 0.3rem solid $white-color;
+  transform: translate(-50%, -50%);
+  .close {
+    color: $text-color-ligth;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+  .close:hover {
+    color: $second-color;
+  }
+}
+.main {
+  display: grid;
+  place-items: center;
+}
+
+@media screen and (max-width: 768px) {
+  .motos {
+    li {
+      flex: 0 0 70%;
+    }
+  }
+  .form {
+    width: 100%;
+  }
+  .modal-container {
+    height: auto;
+    width: 95%;
+    z-index: 100;
+  }
+}

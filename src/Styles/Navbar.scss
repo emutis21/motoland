@@ -1,0 +1,121 @@
+@import "./Variables.scss";
+.header {
+  width: 100%;
+  background: transparent;
+  border-radius: 1rem;
+  box-shadow: 0 0.25rem 1.8rem rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(99rem);
+  -webkit-backdrop-filter: blur(99rem);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: $z-fixed;
+  border-radius: 0 0 0.9rem 0.9rem;
+}
+.nav {
+  height: $header-height;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav__logo,
+.nav__toggle {
+  color: $title-color;
+  display: inline-flex;
+}
+.nav__logo,
+.nav__toggle {
+  display: flex;
+  align-items: center;
+  column-gap: 0.25rem;
+  font-weight: $font-medium;
+  > * {
+    font-size: 1.25rem;
+  }
+  &:hover {
+    color: $second-color;
+  }
+}
+
+.nav__list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+  backdrop-filter: blur(9rem);
+}
+.nav__link {
+  color: $title-color;
+  font-size: $h2-font-size;
+  font-weight: $font-medium;
+  &:hover {
+    color: $second-color;
+  }
+}
+// responsive
+.mobile {
+  display: none;
+}
+.navbar {
+  height: calc($header-height) + 1.5rem;
+}
+.nav__list {
+  flex-direction: row;
+  column-gap: 3rem;
+  padding-top: 0;
+}
+.nav__link {
+  font-size: $normal-font-size;
+  text-transform: initial;
+}
+@media (max-width: 767px) {
+  .navigation {
+    display: none;
+  }
+  .mobile {
+    height: $header-height;
+    display: grid;
+    place-items: center;
+    .nav__toggle {
+      position: absolute;
+      right: 5%;
+      cursor: pointer;
+    }
+    .nav-transition-enter {
+      opacity: 0;
+    }
+    .nav-transition-enter-active {
+      opacity: 1;
+      transition: opacity 250ms;
+    }
+    .nav-transition-exit {
+      opacity: 1;
+    }
+    .nav-transition-exit-active {
+      opacity: 0;
+      transition: opacity 250ms;
+    }
+    .nav__menu {
+      ul {
+        background: $white-color;
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: $header-height;
+        width: 95%;
+        right: 2.5%;
+        left: 2.5%;
+        border-radius: 0 0 0.4rem 0.4rem;
+        padding: 1rem;
+        gap: 1rem;
+        li {
+          a {
+            color: #000;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "motos": [
+    {
+      "id": 1,
+      "content": "https://raw.githubusercontent.com/pac13/motoland/main/public/images/moto-ninja300.png",
+      "name": "Ninja 300",
+      "description": "descripción de la moto*",
+      "city": "Bogotá",
+      "price": "1000"
+    },
+    {
+      "id": 2,
+      "content": "https://raw.githubusercontent.com/pac13/motoland/main/public/images/moto-z400.png",
+      "name": "z400",
+      "description": "descripción de la moto*",
+      "city": "Medellín",
+      "price": "2000"
+    },
+    {
+      "id": 3,
+      "content": "https://raw.githubusercontent.com/pac13/motoland/main/public/images/moto-ninja400.png",
+      "name": "Ninja 400",
+      "description": "descripción de la moto*",
+      "city": "Cúcuta",
+      "price": "3000"
+    },
+    {
+      "id": 4,
+      "content": "https://raw.githubusercontent.com/pac13/motoland/main/public/images/moto-ninjazx6r.png",
+      "name": "Ninja Zx6r",
+      "description": "descripción de la moto*",
+      "city": "Cartagena",
+      "price": "4000"
+    },
+    {
+      "id": 5,
+      "content": "https://raw.githubusercontent.com/pac13/motoland/main/public/images/moto-z900.png",
+      "name": "z900",
+      "description": "descripción de la moto*",
+      "city": "Pereira",
+      "price": "5000"
+    },
+    {
+      "id": 6,
+      "content": "https://raw.githubusercontent.com/pac13/motoland/main/public/images/moto-ninjazx10r.png",
+      "name": "Ninja Zx10r",
+      "description": "descripción de la moto*",
+      "city": "Tunja",
+      "price": "6000"
+    },
+    {
+      "id": 7,
+      "content": "https://raw.githubusercontent.com/pac13/motoland/main/public/images/moto-zh2.png",
+      "name": "Zh2",
+      "description": "descripción de la moto*",
+      "city": "Villavicencio",
+      "price": "7000"
+    }
+  ]
+}
