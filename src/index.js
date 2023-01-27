@@ -8,37 +8,34 @@ import Navbar from "./components/NavBar/Navbar";
 import Main from "./routes/Main";
 import reducer from "./reducers";
 import Cart from "./routes/Cart";
+import Error from "./routes/Error";
 
 const store = createStore(reducer);
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: (
-      <Provider store={store}>
-        <Navbar />
-        <Main />
-      </Provider>
-    ),
-    errorElement: <h1>Error</h1>,
+    element: <Main />,
+    errorElement: <Error />
   },
   {
     path: "/cart",
-    element: (
-      <Provider store={store}>
-        <Cart />
-      </Provider>
-    ),
+    element: <Cart />,
+    errorElement: <Error />
   },
   {
     path: "/contact",
     element: <h1>contact</h1>,
+    errorElement: <Error />
   },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Navbar />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>
 );

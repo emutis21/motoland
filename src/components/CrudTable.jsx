@@ -1,9 +1,8 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 import { addToCart, clearCart, delFromCart } from "../actions/shoppingActions";
 import CrudTableRow from "./CrudTableRow";
 import MotoCartItem from "./MotoCartItem";
-import { Link } from "react-router-dom";
 
 const CrudTable = ({
   data,

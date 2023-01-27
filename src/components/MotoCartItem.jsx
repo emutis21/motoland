@@ -1,12 +1,13 @@
 import React from "react";
 
 const MotoCartItem = ({ el, delOneFromCart, delAllFromCart }) => {
-  let { id, content, name, price, quantity, description, city} = el;
+  let { id, content, name, price, quantity, description, city } = el;
   return (
     <li>
       <div>
         <h2>{name}</h2>
         <img
+          className="img"
           src={content}
           alt={name}
         />

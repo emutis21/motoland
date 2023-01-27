@@ -1,10 +1,7 @@
-import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { delFromCart } from "../actions/shoppingActions";
 
-const Cart = (data,
-  setDataToEdit,
-  deleteData) => {
+const Cart = () => {
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
@@ -17,10 +14,10 @@ const Cart = (data,
   };
 
   return (
-    <div>
-      <h2>Shopping Cart</h2>
+    <div className="container">
+      <h1>Shopping Cart</h1>
       <ul>
-        {cart.length === 0 ? (
+        {cart && cart.length === 0 ? (
           <p>Your cart is empty</p>
         ) : (
           cart.map((item) => (
@@ -33,9 +30,7 @@ const Cart = (data,
           ))
         )}
       </ul>
-      {cart.length > 0 && (
-        <button onClick={handleClearCart}>Clear cart</button>
-      )}
+      {/* {cart.length > 0 && <button onClick={handleClearCart}>Clear cart</button>} */}
     </div>
   );
 };

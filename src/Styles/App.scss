@@ -68,6 +68,18 @@ button {
     transform: scale(1.01);
   }
 }
+img {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  width: 40rem;
+  filter: drop-shadow(1px 1px 0.09rem $text-color-ligth);
+  transition: all 0.3s;
+  &:hover {
+    transform: scale(1.04);
+    transition: all 0.15s;
+    filter: drop-shadow(1px 1px 0.2rem $text-color);
+  }
+}
 .button {
   cursor: pointer;
   padding: 0.3rem 1.7rem;
