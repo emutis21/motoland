@@ -1,5 +1,6 @@
 import React from "react";
 import { RiAddCircleLine } from "react-icons/ri";
+import { useNavigate } from "react-router";
 
 const CrudTableRow = ({
   el,
@@ -9,6 +10,10 @@ const CrudTableRow = ({
   setIsModalOpen,
 }) => {
   let { id, content, name, price, description, city } = el;
+  const handleEdit = () =>{
+    setDataToEdit(el);
+    setIsModalOpen(true);
+  }
 
   return (
     <li>
@@ -32,7 +37,7 @@ const CrudTableRow = ({
       <h4>{city}</h4>
       <h2>${price}</h2>
       <div>
-        <button onClick={() => setDataToEdit(el) || setIsModalOpen(true)}>
+        <button onClick={handleEdit}>
           Edit
         </button>
         <button onClick={() => deleteData(id)}>Delete</button>

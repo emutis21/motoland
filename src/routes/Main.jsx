@@ -8,11 +8,11 @@ import {
   readAllAction,
   updateAction,
 } from "../actions/crudActions";
-import CrudForm from "../components/CrudForm";
 import CrudTable from "../components/CrudTable";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
 import "../Styles/Main.scss";
+import Navbar from "../components/NavBar/Navbar";
 
 const Main = () => {
   const state = useSelector((state) => state);
@@ -98,6 +98,7 @@ const Main = () => {
 
   return (
     <div className="container">
+      <Navbar />
       <h1>Choose the motorcycle of your dreams</h1>
 
       <div className="main">
@@ -114,16 +115,12 @@ const Main = () => {
           dispatch={dispatch}
           cart={cart}
           setIsModalOpen={setIsModalOpen}
+          createData={createData}
+          updateData={updateData}
+          dataToEdit={dataToEdit}
+          isModalOpen={isModalOpen}
         />
       )}
-      <CrudForm
-        createData={createData}
-        updateData={updateData}
-        dataToEdit={dataToEdit}
-        setDataToEdit={setDataToEdit}
-        isModalOpen={isModalOpen}
-        setIsModalOpen={setIsModalOpen}
-      />
     </div>
   );
 };

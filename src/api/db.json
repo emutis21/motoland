@@ -2,7 +2,7 @@
   "motos": [
     {
       "id": 1,
-      "content": "https://raw.githubusercontent.com/pac13/motoland/main/public/images/moto-ninja300.png",
+      "content": "https://raw.githubusercontent.com/pac13/motos-img/master/ninja-300.png",
       "name": "Ninja 300",
       "description": "descripción de la moto*",
       "city": "Bogotá",
@@ -10,7 +10,7 @@
     },
     {
       "id": 2,
-      "content": "https://raw.githubusercontent.com/pac13/motoland/main/public/images/moto-z400.png",
+      "content": "https://raw.githubusercontent.com/pac13/motos-img/master/z400.png",
       "name": "z400",
       "description": "descripción de la moto*",
       "city": "Medellín",
@@ -18,7 +18,7 @@
     },
     {
       "id": 3,
-      "content": "https://raw.githubusercontent.com/pac13/motoland/main/public/images/moto-ninja400.png",
+      "content": "https://raw.githubusercontent.com/pac13/motos-img/master/ninja-400.png",
       "name": "Ninja 400",
       "description": "descripción de la moto*",
       "city": "Cúcuta",
@@ -26,7 +26,7 @@
     },
     {
       "id": 4,
-      "content": "https://raw.githubusercontent.com/pac13/motoland/main/public/images/moto-ninjazx6r.png",
+      "content": "https://raw.githubusercontent.com/pac13/motos-img/master/ninja-zx6r.png",
       "name": "Ninja Zx6r",
       "description": "descripción de la moto*",
       "city": "Cartagena",
@@ -34,7 +34,7 @@
     },
     {
       "id": 5,
-      "content": "https://raw.githubusercontent.com/pac13/motoland/main/public/images/moto-z900.png",
+      "content": "https://raw.githubusercontent.com/pac13/motos-img/master/z900.png",
       "name": "z900",
       "description": "descripción de la moto*",
       "city": "Pereira",
@@ -42,7 +42,7 @@
     },
     {
       "id": 6,
-      "content": "https://raw.githubusercontent.com/pac13/motoland/main/public/images/moto-ninjazx10r.png",
+      "content": "https://raw.githubusercontent.com/pac13/motos-img/master/zx10r.png",
       "name": "Ninja Zx10r",
       "description": "descripción de la moto*",
       "city": "Tunja",
@@ -50,7 +50,7 @@
     },
     {
       "id": 7,
-      "content": "https://raw.githubusercontent.com/pac13/motoland/main/public/images/moto-zh2.png",
+      "content": "https://raw.githubusercontent.com/pac13/motos-img/master/zh2.png",
       "name": "Zh2",
       "description": "descripción de la moto*",
       "city": "Villavicencio",

@@ -1,45 +1,51 @@
-const NavLinks = () => {
+import { Link, NavLink } from "react-router-dom";
+
+const Links = () => {
   return (
-    <div className="nav__menu">
+    <nav className="nav__menu">
       <ul className="nav__list">
         <li className="nav__item">
-          <a
-            href="/"
-            className="nav__link">
+          <NavLink
+            className={({isActive}) => (isActive ? "active" : "") || "nav__link"}
+            to="/">
             Home
-          </a>
+          </NavLink>
         </li>
+
         <li className="nav__item">
-          <a
-            href="/"
-            className="nav__link">
+          <NavLink
+          className="nav__link"
+            to="/about">
             About
-          </a>
+          </NavLink>
         </li>
+
         <li className="nav__item">
-          <a
-            href="/"
-            className="nav__link">
+          <NavLink
+          className="nav__link"
+            to="/more">
             More
-          </a>
+          </NavLink>
         </li>
+
         <li className="nav__item">
-          <a
-            href="/"
-            className="nav__link">
+          <NavLink
+          className="nav__link"
+            to="/contact">
             Contact
-          </a>
+          </NavLink>
         </li>
+
         <li className="nav__item">
-          <a
-            href="/PageCart"
-            className="nav__link">
+          <NavLink
+          className="nav__link"
+            to="/cart">
             Cart
-          </a>
+          </NavLink>
         </li>
       </ul>
-    </div>
+    </nav>
   );
 };
 
-export default NavLinks;
+export default Links;

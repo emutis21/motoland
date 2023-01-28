@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { addToCart, clearCart, delFromCart } from "../actions/shoppingActions";
+import CrudForm from "./CrudForm";
 import CrudTableRow from "./CrudTableRow";
 import MotoCartItem from "./MotoCartItem";
 
@@ -11,6 +12,10 @@ const CrudTable = ({
   dispatch,
   cart,
   setIsModalOpen,
+  createData,
+  updateData,
+  dataToEdit,
+  isModalOpen,
 }) => {
   const { length: dataLength } = data;
   const { length: cartLength } = cart;
@@ -37,27 +42,44 @@ const CrudTable = ({
               ))
             : noDataMessage}
         </div>
+        <CrudForm
+          createData={createData}
+          updateData={updateData}
+          dataToEdit={dataToEdit}
+          setDataToEdit={setDataToEdit}
+          isModalOpen={isModalOpen}
+          setIsModalOpen={setIsModalOpen}
+        />
       </ul>
       <div className="cart">
-        <div>{cartLength === 0 ? null : clearCartButton}</div>
-        <ul className="motos">
-          {cartLength > 0 ? (
-            cart.map((el, index) => (
-              <MotoCartItem
-                key={index}
-                el={el}
-                delOneFromCart={() => dispatch(delFromCart(el.id))}
-                delAllFromCart={() => dispatch(delFromCart(el.id, true))}
-              />
-            ))
-          ) : (
-            <p>Your cart is empty</p>
-          )}
-        </ul>
         <div>
-          {cartLength === 0 ? null : (
-              <Link to={"/cart"} cart={cart} className="link button">View Cart</Link>
-          )}
+          <div>{cartLength === 0 ? null : clearCartButton}</div>
+          <div>
+            {cartLength === 0 ? null : (
+              <Link
+                to={"/cart"}
+                cart={cart}
+                className="link button">
+                View Cart
+              </Link>
+            )}
+          </div>
+        </div>
+        <div>
+          <ul className="motos">
+            {cartLength > 0 ? (
+              cart.map((el, index) => (
+                <MotoCartItem
+                  key={index}
+                  el={el}
+                  delOneFromCart={() => dispatch(delFromCart(el.id))}
+                  delAllFromCart={() => dispatch(delFromCart(el.id, true))}
+                />
+              ))
+            ) : (
+              <p>Your cart is empty</p>
+            )}
+          </ul>
         </div>
       </div>
     </div>

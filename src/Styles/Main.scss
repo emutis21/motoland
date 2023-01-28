@@ -34,18 +34,20 @@
     display: flex;
     justify-content: center;
     li {
-      flex: 0 0 20%;
+      flex: 0 0 25%;
       border: 0.1rem solid $white-color;
-      padding: 1rem;
+      padding: 1.3rem 0;
       border-radius: 0.4rem;
       margin: 0.2rem;
+      scroll-snap-align: start;
+      text-align: center;
       div {
         display: grid;
         place-items: center;
       }
-      img{
+      img {
         filter: none;
-        &:hover{
+        &:hover {
           transform: none;
           filter: none;
         }
@@ -60,7 +62,8 @@
 }
 
 .form {
-  margin-top: 1rem;
+  margin-top: 2rem;
+  margin-left: 2rem;
   display: grid;
   place-items: center;
   padding: 2rem 0;
@@ -98,12 +101,13 @@
 
 .modal-container {
   height: auto;
-  width: 35%;
+  width: auto;
   position: absolute;
+  padding: 2rem;
   top: 50%;
   left: 50%;
-  border: 0.3rem solid $white-color;
   transform: translate(-50%, -50%);
+  border: 0.3rem solid $white-color;
   .close {
     color: $text-color-ligth;
     font-size: 2rem;
@@ -129,7 +133,7 @@
   }
   .modal-container {
     height: auto;
-    width: 95%;
+    width: auto;
     z-index: 100;
   }
 }

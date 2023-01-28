@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { RiCloseCircleLine } from "react-icons/ri";
+import { useNavigate } from "react-router";
 import { Dropdown } from "./Dropdown";
+
 const initialForm = {
   content: "",
   name: "",
@@ -19,6 +21,7 @@ const CrudForm = ({
   setIsModalOpen,
 }) => {
   const [form, setForm] = useState(initialForm);
+  let history = useNavigate();
 
   useEffect(() => {
     if (dataToEdit) {
@@ -42,7 +45,7 @@ const CrudForm = ({
       !form.content ||
       !form.name ||
       !form.description ||
-      !form.city ||
+      // !form.city ||
       !form.price
     ) {
       alert("Datos incompletos");
@@ -60,6 +63,7 @@ const CrudForm = ({
   const handleReset = (e) => {
     setForm(initialForm);
     setDataToEdit(null);
+    history("/")
   };
 
   return (
@@ -78,8 +82,7 @@ const CrudForm = ({
 
             <h3>{dataToEdit ? "Edit" : "Add" || dataToEdit}</h3>
             <form onSubmit={handleSubmit}>
-
-            <Dropdown />
+              <Dropdown />
 
               <input
                 type="url"
@@ -112,7 +115,7 @@ const CrudForm = ({
                 onChange={handleChange}
                 value={form.price}
               />
-              
+
               <button type="submit">Send</button>
 
               <button
