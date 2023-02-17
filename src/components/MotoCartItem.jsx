@@ -1,5 +1,3 @@
-import React from "react";
-
 const MotoCartItem = ({ el, delOneFromCart, delAllFromCart }) => {
   let { id, content, name, price, quantity, description, city } = el;
   return (

@@ -6,6 +6,7 @@ import {
 } from "../types";
 
 export const initialState = {
+  
   motos: [
     {
       id: 1,
@@ -38,21 +39,21 @@ export const initialState = {
     {
       id: 5,
       content:
-      "https://raw.githubusercontent.com/pac13/motos-img/master/z900.png",
+        "https://raw.githubusercontent.com/pac13/motos-img/master/z900.png",
       name: "z900",
       price: 5000,
     },
     {
       id: 6,
       content:
-      "https://raw.githubusercontent.com/pac13/motos-img/master/zx10r.png",
+        "https://raw.githubusercontent.com/pac13/motos-img/master/zx10r.png",
       name: "Ninja Zx10r",
       price: 6000,
     },
     {
       id: 7,
       content:
-      "https://raw.githubusercontent.com/pac13/motos-img/master/zh2.png",
+        "https://raw.githubusercontent.com/pac13/motos-img/master/zh2.png",
       name: "Zh2",
       price: 7000,
     },

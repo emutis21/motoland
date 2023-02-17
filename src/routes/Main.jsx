@@ -15,6 +15,7 @@ import "../Styles/Main.scss";
 import Navbar from "../components/NavBar/Navbar";
 
 const Main = () => {
+
   const state = useSelector((state) => state);
 
   const dispatch = useDispatch();

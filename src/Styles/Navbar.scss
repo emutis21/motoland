@@ -45,29 +45,30 @@
   align-items: center;
   background-color: transparent;
   backdrop-filter: blur(9rem);
+  a {
+    padding: 0.5rem;
+    border-radius: 0.4rem;
+    transition: all 0.15s;
+  }
 }
 .nav__link {
   color: $title-color;
   font-size: $h2-font-size;
   font-weight: $font-medium;
-  transition: all .15s;
   &:hover {
-  border-bottom: solid $text-color-ligth .2rem;
-  color: $second-color;
+    border-bottom: solid $text-color-ligth 0.2rem;
+    color: $second-color;
   }
 }
-.active{
+.active {
   color: $body-color;
   background-color: hsl(220, 9%, 75%);
-  font-weight: 1000;
-  padding: .5rem;
-  border-radius: .4rem;
-  transition: all .15s;
   &:hover {
     color: $second-color;
     background-color: hsl(0, 0%, 27%);
-    }
+  }
 }
+
 // responsive
 .mobile {
   display: none;

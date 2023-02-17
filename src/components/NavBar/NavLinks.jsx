@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Links = () => {
   return (
@@ -6,7 +6,9 @@ const Links = () => {
       <ul className="nav__list">
         <li className="nav__item">
           <NavLink
-            className={({isActive}) => (isActive ? "active" : "") || "nav__link"}
+            className={({ isActive }) =>
+              (isActive ? "active" : "") || "nav__link"
+            }
             to="/">
             Home
           </NavLink>
@@ -14,7 +16,9 @@ const Links = () => {
 
         <li className="nav__item">
           <NavLink
-          className="nav__link"
+            className={({ isActive }) =>
+              (isActive ? "active" : "") || "nav__link"
+            }
             to="/about">
             About
           </NavLink>
@@ -22,7 +26,9 @@ const Links = () => {
 
         <li className="nav__item">
           <NavLink
-          className="nav__link"
+            className={({ isActive }) =>
+              (isActive ? "active" : "") || "nav__link"
+            }
             to="/more">
             More
           </NavLink>
@@ -30,7 +36,9 @@ const Links = () => {
 
         <li className="nav__item">
           <NavLink
-          className="nav__link"
+            className={({ isActive }) =>
+              (isActive ? "active" : "") || "nav__link"
+            }
             to="/contact">
             Contact
           </NavLink>
@@ -38,7 +46,9 @@ const Links = () => {
 
         <li className="nav__item">
           <NavLink
-          className="nav__link"
+            className={({ isActive }) =>
+              (isActive ? "active" : "") || "nav__link"
+            }
             to="/cart">
             Cart
           </NavLink>

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { RiCloseCircleLine } from "react-icons/ri";
-import { useNavigate } from "react-router";
 import { Dropdown } from "./Dropdown";
 
 const initialForm = {
@@ -21,7 +20,6 @@ const CrudForm = ({
   setIsModalOpen,
 }) => {
   const [form, setForm] = useState(initialForm);
-  let history = useNavigate();
 
   useEffect(() => {
     if (dataToEdit) {
@@ -63,7 +61,6 @@ const CrudForm = ({
   const handleReset = (e) => {
     setForm(initialForm);
     setDataToEdit(null);
-    history("/")
   };
 
   return (

@@ -35,9 +35,9 @@ const CrudTable = ({
                   key={el.id}
                   el={el}
                   setDataToEdit={setDataToEdit}
-                  setIsModalOpen={setIsModalOpen}
                   deleteData={deleteData}
                   addToCart={() => dispatch(addToCart(el.id))}
+                  setIsModalOpen={setIsModalOpen}
                 />
               ))
             : noDataMessage}
@@ -57,9 +57,9 @@ const CrudTable = ({
           <div>
             {cartLength === 0 ? null : (
               <Link
-                to={"/cart"}
-                cart={cart}
-                className="link button">
+                className="link button"
+                to={"cart"}
+                cart={cart}>
                 View Cart
               </Link>
             )}
