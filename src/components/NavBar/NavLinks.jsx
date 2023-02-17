@@ -9,6 +9,7 @@ const Links = () => {
             className={({ isActive }) =>
               (isActive ? "active" : "") || "nav__link"
             }
+            translate="no"
             to="/">
             Home
           </NavLink>
@@ -19,6 +20,7 @@ const Links = () => {
             className={({ isActive }) =>
               (isActive ? "active" : "") || "nav__link"
             }
+            translate="no"
             to="/about">
             About
           </NavLink>
@@ -29,6 +31,7 @@ const Links = () => {
             className={({ isActive }) =>
               (isActive ? "active" : "") || "nav__link"
             }
+            translate="no"
             to="/more">
             More
           </NavLink>
@@ -39,6 +42,7 @@ const Links = () => {
             className={({ isActive }) =>
               (isActive ? "active" : "") || "nav__link"
             }
+            translate="no"
             to="/contact">
             Contact
           </NavLink>
@@ -49,6 +53,7 @@ const Links = () => {
             className={({ isActive }) =>
               (isActive ? "active" : "") || "nav__link"
             }
+            translate="no"
             to="/cart">
             Cart
           </NavLink>

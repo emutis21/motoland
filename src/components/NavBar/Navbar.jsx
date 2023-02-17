@@ -8,6 +8,7 @@ function Navbar() {
     <header className="header">
       <nav className="nav container">
         <a
+        translate="no"
           href="/"
           className="nav__logo">
           <RiMotorbikeFill /> Motoland

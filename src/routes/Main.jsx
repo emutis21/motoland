@@ -12,10 +12,10 @@ import CrudTable from "../components/CrudTable";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
 import "../Styles/Main.scss";
-import Navbar from "../components/NavBar/Navbar";
+import Header from "../components/Header";
+// import {motos as initialState} from "../api/db.json"
 
 const Main = () => {
-
   const state = useSelector((state) => state);
 
   const dispatch = useDispatch();
@@ -97,10 +97,20 @@ const Main = () => {
     }
   };
 
+  const [filters, setFilters] = useState({ brand: "all", minPrice: 0 });
+  const filterMotos = (db) => {
+    return db.filter((moto) => {
+      return (
+        moto.price >= filters.minPrice &&
+        (filters.brand === "all" || moto.brand === filters.brand)
+      );
+    });
+  };
+  const filteredMotos = filterMotos(db) 
+
   return (
-    <div className="container">
-      <Navbar />
-      <h1>Choose the motorcycle of your dreams</h1>
+    <main className="container">
+      <Header changeFilters = {setFilters}/>
 
       <div className="main">
         {loading && <Loader />}
@@ -109,7 +119,7 @@ const Main = () => {
 
       {db && (
         <CrudTable
-          data={db}
+          data={filteredMotos}
           setDataToEdit={setDataToEdit}
           deleteData={deleteData}
           state={state}
@@ -122,7 +132,7 @@ const Main = () => {
           isModalOpen={isModalOpen}
         />
       )}
-    </div>
+    </main>
   );
 };
 

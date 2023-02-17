@@ -61,6 +61,9 @@ export const initialState = {
   cart: [],
 };
 export function shoppingReducer(state = initialState, action) {
+  
+
+
   switch (action.type) {
     case ADD_TO_CART: {
       let newMoto = state.motos.find((moto) => moto.id === action.payload);
