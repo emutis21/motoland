@@ -36,12 +36,46 @@ const CrudTable = ({
                   el={el}
                   setDataToEdit={setDataToEdit}
                   deleteData={deleteData}
-                  addToCart={() => dispatch(addToCart(el.id))}
+                  addToCart={() => dispatch(addToCart(el))}
                   setIsModalOpen={setIsModalOpen}
                 />
               ))
             : noDataMessage}
         </div>
+      </ul>
+      <section>
+        <div className="cart">
+          <div>
+            <div>{cartLength === 0 ? null : clearCartButton}</div>
+            <div>
+              {cartLength === 0 ? null : (
+                <Link
+                  className="link button"
+                  to={"cart"}
+                  cart={cart}>
+                  View Cart
+                </Link>
+              )}
+            </div>
+          </div>
+          <div>
+            <ul className="motos">
+              {cartLength > 0 ? (
+                cart.map((el, index) => (
+                  <MotoCartItem
+                    key={index}
+                    el={el}
+                    delOneFromCart={() => dispatch(delFromCart(el.id))}
+                    delAllFromCart={() => dispatch(delFromCart(el.id, true))}
+                  />
+                ))
+              ) : (
+                <p>Your cart is empty</p>
+              )}
+            </ul>
+          </div>
+        </div>
+        
         <CrudForm
           createData={createData}
           updateData={updateData}
@@ -50,38 +84,7 @@ const CrudTable = ({
           isModalOpen={isModalOpen}
           setIsModalOpen={setIsModalOpen}
         />
-      </ul>
-      <div className="cart">
-        <div>
-          <div>{cartLength === 0 ? null : clearCartButton}</div>
-          <div>
-            {cartLength === 0 ? null : (
-              <Link
-                className="link button"
-                to={"cart"}
-                cart={cart}>
-                View Cart
-              </Link>
-            )}
-          </div>
-        </div>
-        <div>
-          <ul className="motos">
-            {cartLength > 0 ? (
-              cart.map((el, index) => (
-                <MotoCartItem
-                  key={index}
-                  el={el}
-                  delOneFromCart={() => dispatch(delFromCart(el.id))}
-                  delAllFromCart={() => dispatch(delFromCart(el.id, true))}
-                />
-              ))
-            ) : (
-              <p>Your cart is empty</p>
-            )}
-          </ul>
-        </div>
-      </div>
+      </section>
     </div>
   );
 };

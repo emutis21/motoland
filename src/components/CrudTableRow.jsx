@@ -19,7 +19,7 @@ const CrudTableRow = ({
         <h2>{name}</h2>
       </div>
       <button
-        onClick={() => addToCart(id)}
+        onClick={() => addToCart(el)}
         className="img">
         <img
           src={content}
@@ -27,7 +27,7 @@ const CrudTableRow = ({
         />
       </button>
       <button
-        onClick={() => addToCart(id)}
+        onClick={() => addToCart(el)}
         className="add">
         <RiAddCircleLine />
       </button>

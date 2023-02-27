@@ -13,7 +13,6 @@ import Loader from "../components/Loader";
 import Message from "../components/Message";
 import "../Styles/Main.scss";
 import Header from "../components/Header";
-// import {motos as initialState} from "../api/db.json"
 
 const Main = () => {
   const state = useSelector((state) => state);

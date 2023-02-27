@@ -14,6 +14,18 @@ body {
   background-color: $body-color;
   color: $text-color;
 }
+::-webkit-scrollbar{
+  width: .8rem;
+}
+::-webkit-scrollbar-track{
+  border: 1px solid #313131;
+  border-radius: .1rem;
+  background-color: $body-color;
+}
+::-webkit-scrollbar-thumb{
+  background-color: $text-color;
+  border-radius: .1rem;
+}
 h1,
 h2,
 h3 {
@@ -101,6 +113,8 @@ img {
 }
 input {
   color: $white-color;
+  caret-color: $second-color;
+  accent-color: $second-color;
 }
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {

@@ -1,5 +1,3 @@
-import React from 'react'
-import Navbar from '../components/NavBar/Navbar'
 
 const NewMoto = () => {
   return (

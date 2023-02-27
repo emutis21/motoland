@@ -2,11 +2,13 @@
 .motos {
   display: flex;
   overflow: auto;
-  scroll-snap-type: initial;
-  padding: 1.3rem 0;
+  scroll-snap-type: x mandatory;
+  padding: 1.5rem 0;
+  scroll-padding: 0.5rem;
   li {
-    flex: 0 0 30%;
+    flex: 0 0 22%;
     scroll-snap-align: start;
+    scroll-snap-stop: always;
     text-align: center;
     font-weight: $font-semi-bold;
     .add {
@@ -24,51 +26,60 @@
     }
   }
 }
-.cart {
-  div {
-    display: flex;
-    justify-content: center;
-    margin-top: 1rem;
-  }
-  ul {
-    display: flex;
-    justify-content: center;
-    li {
-      flex: 0 0 25%;
-      border: 0.1rem solid $white-color;
+
+section{
+  display: flex;
+  .cart {
+    width: 70%;
+    div {
+      display: flex;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+    ul {
+      display: flex;
+      justify-content: center;
+      display: flex;
+      overflow: auto;
+      scroll-snap-type: x mandatory;
       padding: 1.3rem 0;
-      border-radius: 0.4rem;
-      margin: 0.2rem;
-      scroll-snap-align: start;
-      text-align: center;
-      div {
-        display: grid;
-        place-items: center;
-      }
-      img {
-        filter: none;
-        &:hover {
-          transform: none;
-          filter: none;
+      scroll-padding: 0.5rem;
+      li {
+        flex: 0 0 10%;
+        border: 0.1rem solid $white-color;
+  
+        border-radius: 0.4rem;
+        margin: 0.2rem;
+        scroll-snap-align: start;
+        text-align: center;
+        div {
+          display: grid;
+          place-items: center;
+          padding: 1rem;
         }
-      }
-      .buttons {
-        > * {
-          font-size: 90%;
+        img {
+          filter: none;
+          &:hover {
+            transform: none;
+            filter: none;
+          }
+        }
+        .buttons {
+          > * {
+            font-size: 90%;
+          }
         }
       }
     }
   }
 }
-
 .form {
   margin-top: 2rem;
-  margin-left: 2rem;
   display: grid;
   place-items: center;
   padding: 2rem 0;
-  width: 35%;
-  float: right;
+  width: 30%;
+  height: 15rem;
   border-radius: 0.4rem;
   border: 0.3rem solid $second-color;
   gap: 1.5rem;
@@ -125,15 +136,26 @@
 @media screen and (max-width: 768px) {
   .motos {
     li {
-      flex: 0 0 70%;
+      flex: 0 0 60%;
+      > * {
+        padding: 0;
+      }
     }
   }
-  .form {
-    width: 100%;
+  section{
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    .form{
+      width: 100%;
+      height: auto;
+    }
   }
+
   .modal-container {
+
     height: auto;
-    width: auto;
+    width: 90%;
     z-index: 100;
   }
 }
