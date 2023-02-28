@@ -8,12 +8,7 @@ import { Provider } from "react-redux";
 
 const store = createStore(reducer);
 ReactDOM.createRoot(document.getElementById("root")).render(
-  // filter context
-  
-  
-  <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </React.StrictMode>
+  <Provider store={store}>
+    <App />
+  </Provider>
 );

@@ -105,11 +105,11 @@ const Main = () => {
       );
     });
   };
-  const filteredMotos = filterMotos(db) 
+  const filteredMotos = filterMotos(db);
 
   return (
     <main className="container">
-      <Header changeFilters = {setFilters}/>
+      <Header changeFilters={setFilters} />
 
       <div className="main">
         {loading && <Loader />}
