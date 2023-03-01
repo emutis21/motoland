@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { helpHttp } from "../helpers/helpHttp";
+
 import {
   createAction,
   deleteAction,
@@ -8,11 +9,13 @@ import {
   readAllAction,
   updateAction,
 } from "../actions/crudActions";
+
 import CrudTable from "../components/CrudTable";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
-import "../Styles/Main.scss";
 import Header from "../components/Header";
+
+import "../styles/Main.scss";
 
 const Main = () => {
   const state = useSelector((state) => state);
@@ -97,6 +100,7 @@ const Main = () => {
   };
 
   const [filters, setFilters] = useState({ brand: "all", minPrice: 0 });
+
   const filterMotos = (db) => {
     return db.filter((moto) => {
       return (
@@ -105,6 +109,7 @@ const Main = () => {
       );
     });
   };
+
   const filteredMotos = filterMotos(db);
 
   return (
@@ -118,15 +123,15 @@ const Main = () => {
 
       {db && (
         <CrudTable
-          data={filteredMotos}
           setDataToEdit={setDataToEdit}
           deleteData={deleteData}
-          state={state}
           dispatch={dispatch}
-          cart={cart}
           setIsModalOpen={setIsModalOpen}
           createData={createData}
           updateData={updateData}
+          cart={cart}
+          state={state}
+          data={filteredMotos}
           dataToEdit={dataToEdit}
           isModalOpen={isModalOpen}
         />

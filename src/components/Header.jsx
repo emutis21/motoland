@@ -1,13 +1,13 @@
-import React from 'react'
-import { Filters } from './Filters'
+import { Filters } from "./Filters";
 
-const Header = ({changeFilters}) => {
+const Header = ({ changeFilters }) => {
   return (
-    <header>
+    <div className="headers">
       <h1>Choose the motorcycle of your dreams</h1>
-        <Filters onChange ={changeFilters}/>
-    </header>
-  )
-}
+      <Filters onChange={changeFilters} />
+      
+    </div>
+  );
+};
 
-export default Header
+export default Header;

@@ -1,5 +1,5 @@
 const MotoCartItem = ({ el, delOneFromCart, delAllFromCart }) => {
-  let { id, content, name, price, quantity, description, city } = el;
+  let { id, content, name, price, quantity } = el;
   return (
     <li>
       <div>
@@ -13,8 +13,6 @@ const MotoCartItem = ({ el, delOneFromCart, delAllFromCart }) => {
           ${price} x {quantity} = ${price * quantity}
         </p>
         <div className="buttons">
-          <h3>{description}</h3>
-          <h4>{city}</h4>
           <button onClick={() => delOneFromCart(id)}>Remove One</button>
           <button onClick={() => delAllFromCart(id, true)}>Delete All</button>
         </div>

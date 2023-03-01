@@ -1,5 +1,5 @@
-import React from "react";
 import { RiAddCircleLine } from "react-icons/ri";
+
 const CrudTableRow = ({
   el,
   setDataToEdit,

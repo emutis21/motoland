@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import "../Styles/Dropdown.scss";
+import "../styles/Dropdown.scss";
 import "material-symbols";
 
 const Icon = ({ children }) => (

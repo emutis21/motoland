@@ -1,5 +1,5 @@
 import MobileNavigation from "./MobileNavigation";
-import "../../Styles/Navbar.scss";
+import "../../styles/Navbar.scss";
 import Navigation from "./Navegation";
 import { RiMotorbikeFill } from "react-icons/ri";
 

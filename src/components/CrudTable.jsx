@@ -1,6 +1,7 @@
-import React from "react";
+import { TbChevronRight } from "react-icons/tb";
 import { Link } from "react-router-dom";
 import { addToCart, clearCart, delFromCart } from "../actions/shoppingActions";
+
 import CrudForm from "./CrudForm";
 import CrudTableRow from "./CrudTableRow";
 import MotoCartItem from "./MotoCartItem";
@@ -41,6 +42,15 @@ const CrudTable = ({
                 />
               ))
             : noDataMessage}
+          {dataLength > 0 ? (
+            <li className="li">
+              <Link
+                to="motos"
+                className="button link">
+                View all Motos <TbChevronRight />
+              </Link>
+            </li>
+          ) : null}
         </div>
       </ul>
       <section>
@@ -51,8 +61,7 @@ const CrudTable = ({
               {cartLength === 0 ? null : (
                 <Link
                   className="link button"
-                  to={"cart"}
-                  cart={cart}>
+                  to="cart">
                   View Cart
                 </Link>
               )}
@@ -75,7 +84,7 @@ const CrudTable = ({
             </ul>
           </div>
         </div>
-        
+
         <CrudForm
           createData={createData}
           updateData={updateData}

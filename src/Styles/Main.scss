@@ -27,7 +27,7 @@
   }
 }
 
-section{
+section {
   display: flex;
   .cart {
     width: 70%;
@@ -47,7 +47,7 @@ section{
       li {
         flex: 0 0 10%;
         border: 0.1rem solid $white-color;
-  
+
         border-radius: 0.4rem;
         margin: 0.2rem;
         scroll-snap-align: start;
@@ -72,6 +72,15 @@ section{
       }
     }
   }
+}
+
+.headers {
+  display: grid;
+  place-items: center;
+  .filters {
+    width: 100%;
+  }
+  
 }
 .form {
   margin-top: 2rem;
@@ -132,7 +141,51 @@ section{
   display: grid;
   place-items: center;
 }
+.error {
+  display: grid;
+  place-items: center;
+  gap: 1rem;
+}
 
+.link {
+  display: grid;
+  place-items: center;
+}
+.motoList {
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+  margin: 2rem 0;
+  .li {
+    padding: 3rem;
+    gap: 1rem;
+    border: 1px $text-color-ligth solid;
+    display: grid;
+    place-items: center;
+    .button{
+      border: none;
+      color: $second-color;
+      padding: 0;
+      gap: .5rem;
+      &:hover{
+        background: transparent;
+        color: $white-color;
+      }
+    }
+  }
+}
+.li {
+  display: grid;
+  place-items: center;
+  .button {
+    border: $text-color-ligth 1px solid;
+    padding: 2rem;
+    font-size: 1rem;
+    &:hover {
+      color: $body-color;
+    }
+  }
+}
 @media screen and (max-width: 768px) {
   .motos {
     li {
@@ -142,18 +195,17 @@ section{
       }
     }
   }
-  section{
+  section {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    .form{
+    .form {
       width: 100%;
       height: auto;
     }
   }
 
   .modal-container {
-
     height: auto;
     width: 90%;
     z-index: 100;

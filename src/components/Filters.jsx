@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { AiOutlineDown } from "react-icons/ai";
-import "../Styles/Filters.scss";
+import "../styles/Filters.scss";
 
 export function Filters({ onChange }) {
   const [minPrice, setMinPrice] = useState(0);
