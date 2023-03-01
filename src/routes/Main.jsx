@@ -35,7 +35,7 @@ const Main = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   let api = helpHttp();
-  let url = "http://localhost:5000/motos";
+  let url = "http://localhost:5000/motos" || "http://192.168.1.101:5000/motos";
 
   useEffect(() => {
     setLoading(true);

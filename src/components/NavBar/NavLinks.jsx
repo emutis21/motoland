@@ -48,16 +48,6 @@ const Links = () => {
           </NavLink>
         </li>
 
-        <li className="nav__item">
-          <NavLink
-            className={({ isActive }) =>
-              (isActive ? "active" : "") || "nav__link"
-            }
-            translate="no"
-            to="/cart">
-            Cart
-          </NavLink>
-        </li>
       </ul>
     </nav>
   );

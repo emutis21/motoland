@@ -1,0 +1,62 @@
+@import "./Variables.scss";
+
+.cart {
+  background: #000;
+  display: none;
+  position: fixed;
+  right: 0px;
+  top: 0px;
+  max-width: 35%;
+
+  li {
+    border-bottom: 1px solid #444;
+    padding-bottom: 16px;
+  }
+}
+
+.cart-button {
+  background-color: $title-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  padding: 1rem 3rem;
+  color: $body-color;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  font-size: 2rem;
+  transition: all 0.3s ease;
+
+  &:hover {
+    scale: 1.1;
+  }
+
+  & ~ input:checked ~ .cart {
+    height: 100%;
+    z-index: 1000;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 3rem;
+    border: .5rem solid $title-color;
+    border-right: none;
+    h2{
+      margin: 2rem;
+      text-align: center;
+    }
+    ul {
+      display: flex;
+      flex-direction: column;
+      flex-flow: wrap;
+      .cartList {
+        flex:  0 1 auto ;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(1rem, 1fr));
+        border: none;
+        background-color: #141414;
+        padding: 1rem;
+      }
+    }
+  }
+}

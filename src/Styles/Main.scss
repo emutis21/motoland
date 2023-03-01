@@ -82,42 +82,49 @@ section {
   }
   
 }
-.form {
-  margin-top: 2rem;
-  display: grid;
-  place-items: center;
-  padding: 2rem 0;
-  width: 30%;
-  height: 15rem;
-  border-radius: 0.4rem;
-  border: 0.3rem solid $second-color;
-  gap: 1.5rem;
-  margin-bottom: 2rem;
-  background-color: $body-color;
-  z-index: 100;
-  h3 {
-    margin: 0.8rem;
-  }
-  .modal-content {
+.section{
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  .form {
+    margin-top: 2rem;
     display: grid;
     place-items: center;
-  }
-  form {
-    display: grid;
-    place-items: center;
-    gap: 2rem;
+    padding: 2rem 0;
+    width: 30%;
+    height: 15rem;
+    border-radius: 0.4rem;
+    border: 0.3rem solid $second-color;
+    gap: 1.5rem;
     margin-bottom: 2rem;
-    input {
-      max-width: 18rem;
-      background-color: transparent;
-      border: 0;
-      border-bottom: 0.1rem solid $text-color-ligth;
-      font-size: 1rem;
-      padding: 0.1rem;
-      text-align: center;
+    background-color: $body-color;
+    z-index: 100;
+    h3 {
+      margin: 0.8rem;
+    }
+    .modal-content {
+      display: grid;
+      place-items: center;
+    }
+    form {
+      display: grid;
+      place-items: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      input {
+        max-width: 18rem;
+        background-color: transparent;
+        border: 0;
+        border-bottom: 0.1rem solid $text-color-ligth;
+        font-size: 1rem;
+        padding: 0.1rem;
+        text-align: center;
+      }
     }
   }
 }
+
 
 .modal-container {
   height: auto;
@@ -154,22 +161,26 @@ section {
 .motoList {
   display: grid;
   place-items: center;
-  grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr));
   margin: 2rem 0;
+  gap: 2rem;
   .li {
     padding: 3rem;
     gap: 1rem;
-    border: 1px $text-color-ligth solid;
     display: grid;
     place-items: center;
+    background-color: #000;
+    border-radius: .4rem;
     .button{
       border: none;
       color: $second-color;
-      padding: 0;
+      padding: 1rem 3rem;
+      background: #101010;
       gap: .5rem;
+      margin: 0;
       &:hover{
-        background: transparent;
-        color: $white-color;
+        background: #212121;
+        color: $second-color;
       }
     }
   }

@@ -12,14 +12,14 @@ const MotosList = ({ db }) => {
             <h2>{moto.name}</h2>
           </div>
 
-          <Link to={`/motos/${moto.name}`}>
+          <Link to={`${moto.id}`}>
             <img
               src={moto.content}
               alt={moto.name}
             />
           </Link>
           <Link
-            to={`/motos/${moto.name}`}
+            to={`${moto.id}`}
             className="button link">
             See details <TbChevronRight />
           </Link>
