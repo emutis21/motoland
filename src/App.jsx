@@ -9,7 +9,7 @@ const About = lazy(() => import("./routes/About"));
 const More = lazy(() => import("./routes/More"));
 const Error = lazy(() => import("./routes/Error"));
 const AllMotos = lazy(() => import("./routes/AllMotos"));
-const Moto = lazy(() => import("./components/Moto"));
+const Moto = lazy(() => import("./routes/Moto"));
 
 function App() {
   return (
