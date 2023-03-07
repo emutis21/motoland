@@ -1,6 +1,7 @@
 import { TbChevronRight } from "react-icons/tb";
 import { Link } from "react-router-dom";
 import { addToCart } from "../actions/shoppingActions";
+import { useId, useState } from "react";
 
 import CrudForm from "./CrudForm";
 import CrudTableRow from "./CrudTableRow";
@@ -22,6 +23,10 @@ const CrudTable = ({
 
   const noDataMessage = <h2>No data!</h2>;
 
+  const cartCheckboxId = useId();
+
+  const [cartIsOpen, setCartIsOpen] = useState(false);
+
   return (
     <div>
       <ul>
@@ -29,18 +34,22 @@ const CrudTable = ({
           {dataLength > 0
             ? data.map((el) => (
                 <CrudTableRow
+                  addToCart={() => dispatch(addToCart(el))}
+                  cartCheckboxId={cartCheckboxId}
                   key={el.id}
                   el={el}
                   setDataToEdit={setDataToEdit}
                   deleteData={deleteData}
-                  addToCart={() => dispatch(addToCart(el))}
                   setIsModalOpen={setIsModalOpen}
+                  cartIsOpen={cartIsOpen}
                 />
               ))
             : noDataMessage}
           {dataLength > 0 ? (
             <li className="li">
-              <Link to="motos" className="button link">
+              <Link
+                to="motos"
+                className="button link">
                 View all Motos <TbChevronRight />
               </Link>
             </li>
@@ -48,7 +57,13 @@ const CrudTable = ({
         </div>
       </ul>
       <section className="section">
-        <Cart cart={cart} dispatch={dispatch} />
+        <Cart
+          cart={cart}
+          dispatch={dispatch}
+          cartCheckboxId={cartCheckboxId}
+          cartIsOpen={cartIsOpen}
+          setCartIsOpen={setCartIsOpen}
+        />
         <CrudForm
           createData={createData}
           updateData={updateData}
