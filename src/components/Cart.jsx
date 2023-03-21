@@ -24,8 +24,6 @@ const Cart = ({
     <button onClick={() => dispatch(clearCart())}>Clear cart</button>
   );
 
-  
-
   return (
     <div>
       <label
