@@ -116,3 +116,8 @@ input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+@media screen and (max-width: 1020px) {
+.container{
+  margin: 0 2.3rem;
+}
+}
