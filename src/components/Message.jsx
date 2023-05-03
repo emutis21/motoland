@@ -1,5 +1,3 @@
-import React from "react";
-
 const Message = ({ msg, bgColor }) => {
   return (
     <div className="msg">

@@ -6,7 +6,7 @@
   padding: 1.5rem 0;
   scroll-padding: 0.5rem;
   li {
-    flex: 0 0 22%;
+    flex: 0 0 28%;
     scroll-snap-align: start;
     scroll-snap-stop: always;
     text-align: center;
@@ -47,8 +47,6 @@ section {
       li {
         flex: 0 0 10%;
         border: 0.1rem solid $white-color;
-
-        border-radius: 0.4rem;
         margin: 0.2rem;
         scroll-snap-align: start;
         text-align: center;
@@ -93,7 +91,6 @@ section {
     padding: 2rem 0;
     width: 30%;
     height: 15rem;
-    border-radius: 0.4rem;
     border: 0.3rem solid $second-color;
     gap: 1.5rem;
     margin-bottom: 2rem;
@@ -168,7 +165,6 @@ section {
     display: grid;
     place-items: center;
     background-color: #000;
-    border-radius: 0.4rem;
     .button {
       border: none;
       color: $second-color;

@@ -19,12 +19,10 @@ body {
 }
 ::-webkit-scrollbar-track{
   border: 1px solid #313131;
-  border-radius: .1rem;
   background-color: $body-color;
 }
 ::-webkit-scrollbar-thumb{
   background-color: $text-color;
-  border-radius: .1rem;
 }
 h1,
 h2,
@@ -47,8 +45,8 @@ img {
   text-align: center;
 }
 .container {
-  margin-right: 1.5rem;
-  margin-left: 1.5rem;
+  max-width: 980px;
+  margin: 0 auto;
   h1 {
     padding-top: 4rem;
     text-align: center;
@@ -59,14 +57,12 @@ img {
   background-color: red;
   padding: 1rem;
   margin: 2rem 0;
-  border-radius: 2rem;
 }
 button {
   cursor: pointer;
   padding: 0.3rem 1.7rem;
   margin: 0.35rem;
   border: 1px solid $second-color;
-  border-radius: 0.8rem;
   background-color: transparent;
   color: $white-color;
   font-size: $h3-font-size;
@@ -97,7 +93,6 @@ img {
   padding: 0.3rem 1.7rem;
   margin: 0.35rem;
   border: 1px solid $second-color;
-  border-radius: 0.8rem;
   background-color: transparent;
   color: $white-color;
   font-size: $h3-font-size;

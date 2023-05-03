@@ -3,7 +3,7 @@
 .filters {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   font-size: 1.2rem;
   font-weight: 700;
   div {
@@ -22,7 +22,6 @@
       color: $title-color;
       cursor: pointer;
       font-size: 1rem;
-      border-radius: 0.4rem;
     }
     .brands::-ms-expand {
       display: none;
