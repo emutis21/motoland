@@ -6,7 +6,7 @@ import { RiMotorbikeFill } from "react-icons/ri";
 function Navbar() {
   return (
     <header className="header">
-      <nav className="nav container">
+      <nav className="nav">
         <a
         translate="no"
           href="/"

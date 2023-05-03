@@ -21,20 +21,14 @@ const CrudTableRow = ({
       <div>
         <h2>{name}</h2>
       </div>
-      <button
-        onClick={() => addToCart(el)}
-        className="img">
-        <img
-          src={content}
-          alt={name}
-        />
-      </button>
 
       <label
-      className="label"
+        className="label"
         htmlFor={cartIsOpen ? null : cartCheckboxId}
-        onClick={() => addToCart(el)}>
+        onClick={() => addToCart(el)}
+      >
         <RiAddCircleLine />
+        <img src={content} alt={name} />
       </label>
 
       <h3>{description}</h3>
