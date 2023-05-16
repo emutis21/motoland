@@ -4,8 +4,7 @@
   width: 100%;
   background-color: $navbar-color;
   box-shadow: 0 0.25rem 1.8rem rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(99rem);
-  -webkit-backdrop-filter: blur(99rem);
+  backdrop-filter: blur(8px);
   border: 1px solid rgba(0, 0, 0, 0.04);
   position: fixed;
   top: 0;
@@ -23,49 +22,45 @@
 
 .nav__logo,
 .nav__toggle {
-  display: flex;
-  align-items: center;
+  @include flex-center;
   column-gap: 0.25rem;
-  font-weight: $font-medium;
-  font-size: 1.25rem;
-  color: $title-color;
+  font-size: $h2-font-size;
+  color: $white-color;
   > * {
-    font-size: 2rem;
+    font-size: $h1-font-size;
     margin: 0 1rem 0 0;
   }
   &:hover {
-    color: $second-color;
+    color: $light-green-color;
   }
 }
 
 .nav__list {
-  display: flex;
-  align-items: center;
-  backdrop-filter: blur(9rem);
+  @include flex-center;
+  font-size: $h3-font-size;
+
   .nav__item {
     border-right: 1px solid $body-color;
-    padding: .4rem 2rem;
     .active {
-      padding: .4rem 2rem;
-
+      background-color: $green-color;
       color: $body-color;
-      background-color: hsl(220, 9%, 75%);
-      font-weight: $font-medium;
+      color: $white-color;
+      border-radius: 0.2rem;
+      padding: 0.4rem 2rem;
+      transition: all 0.2s ease-in-out;
       &:hover {
-        color: $second-color;
-        background-color: hsl(0, 0%, 27%);
+        background-color: $container-color;
+        border-radius: 0.4rem;
       }
     }
 
-    
     .nav__link {
-      display: block;
-      transition: all 0.1s ease-in-out;
-      color: $title-color;
+      padding: 0.4rem 2rem;
+      transition: all 0.2s ease-in-out;
+      color: $white-color;
       font-weight: $font-medium;
       &:hover {
-        border-bottom: solid $text-color-ligth 1px;
-        color: $second-color;
+        color: $light-green-color;
       }
     }
     &:last-child {
@@ -77,15 +72,6 @@
 // responsive
 .mobile {
   display: none;
-}
-
-.navbar {
-  height: calc($header-height) + 1.5rem;
-}
-
-.nav__link {
-  font-size: $normal-font-size;
-  text-transform: initial;
 }
 
 @media (max-width: 767px) {
@@ -107,30 +93,50 @@
     }
     .nav-transition-enter-active {
       opacity: 1;
-      transition: opacity 250ms;
+      transition: opacity 150ms;
     }
     .nav-transition-exit {
       opacity: 1;
     }
     .nav-transition-exit-active {
       opacity: 0;
-      transition: opacity 250ms;
+      transition: opacity 150ms;
     }
     .nav__menu {
-      ul {
-        background: $white-color;
-        display: flex;
+      position: absolute;
+      top: $header-height;
+      width: 95%;
+      right: 2.5%;
+      left: 2.5%;
+      background-color: $black-color;
+
+      backdrop-filter: blur(10rem);
+      .nav__list {
+        backdrop-filter: blur(10rem);
+        height: 45vh;
         flex-direction: column;
-        position: absolute;
-        top: $header-height;
-        width: 95%;
-        right: 2.5%;
-        left: 2.5%;
-        padding: 1rem;
-        gap: 1rem;
-        li {
-          a {
-            color: #000;
+        justify-content: space-around;
+        .nav__item {
+          display: flex;
+          width: 80%;
+          border-bottom: 1px solid $body-color;
+          border-right: none;
+          .active {
+            background-color: $green-color;
+            font-weight: $font-medium;
+            width: 100%;
+            padding: 0.6rem;
+            &:hover {
+              background-color: lighten($container-color, 40);
+            }
+          }
+          .nav__link {
+            width: 100%;
+            padding: 0.6rem;
+            &:hover {
+              border: none;
+              color: $white-color;
+            }
           }
         }
       }

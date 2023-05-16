@@ -1,19 +1,20 @@
-import MobileNavigation from "./MobileNavigation";
 import "../../styles/Navbar.scss";
-import Navigation from "./Navegation";
+
+import MobileNavigation from "./MobileNavigation";
+import NavLinks from "./NavLinks";
+
 import { RiMotorbikeFill } from "react-icons/ri";
 
 function Navbar() {
   return (
     <header className="header">
       <nav className="nav">
-        <a
-        translate="no"
-          href="/"
-          className="nav__logo">
+        <a translate="no" href="/motoland" className="nav__logo">
           <RiMotorbikeFill /> Motoland
         </a>
-        <Navigation />
+        <div className="navigation">
+          <NavLinks />
+        </div>
         <MobileNavigation />
       </nav>
     </header>

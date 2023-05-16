@@ -7,6 +7,9 @@ import CrudForm from "./CrudForm";
 import CrudTableRow from "./CrudTableRow";
 import Cart from "./Cart";
 
+import "../styles/CrudTable.scss";
+
+
 const CrudTable = ({
   data,
   setDataToEdit,
@@ -46,7 +49,7 @@ const CrudTable = ({
               ))
             : noDataMessage}
           {dataLength > 0 ? (
-            <li className="li">
+            <li className="all-motos">
               <Link
                 to="motos"
                 className="button link">

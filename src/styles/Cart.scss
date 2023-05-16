@@ -1,96 +1,111 @@
 @import "./Variables.scss";
 
 .cart {
-  background: #000;
+  background-color: $container-color;
   display: none;
   position: fixed;
   right: 0px;
   top: 0px;
   max-width: 35%;
   height: 0;
-  transform: translateY(100%); 
-  transition: all 1s ease; 
+  transform: translateY(100%);
+  transition: all 1s ease;
 
-  li {
-    border-bottom: 1px solid #444;
-    padding-bottom: 16px;
+  div {
+    @include flex-center;
+    margin-top: 1rem;
+
+    &:first-child {
+      margin-top: none;
+    }
+  }
+
+  ul {
+    @include flex-center;
+    overflow: auto;
+    scroll-snap-type: x mandatory;
+    padding: 1.3rem 0;
+    scroll-padding: 0.5rem;
+
+    li {
+      flex: 0 0 10%;
+      border: 0.1rem solid $white-color;
+      margin: 0.2rem;
+      scroll-snap-align: start;
+      text-align: center;
+
+      div {
+        display: grid;
+        place-items: center;
+        padding: 1rem;
+      }
+
+      img {
+        filter: none;
+
+        &:hover {
+          transform: none;
+          filter: none;
+        }
+      }
+
+      button {
+        font-size: $h3-font-size;
+      }
+    }
+  }
+
+  button {
+    font-size: $h2-font-size;
   }
 }
+
 .cart-button-close {
-  background-color: $title-color;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 2rem;
-  padding: 0.5rem 1.5rem;
-  color: $body-color;
-  cursor: pointer;
-  font-size: 2rem;
-  transition: all 0.23s ease;
-
-  &:hover {
-    scale: 1.1;
-    color: $second-color;
-    background-color: #444;
-  }
+  @include open-close;
 }
-.cart-button {
-  background-color: $title-color;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 2rem;
-  padding: 1rem 3rem;
-  color: $body-color;
-  cursor: pointer;
-  font-size: 2rem;
-  transition: all 0.23s ease;
 
-  &:hover {
-    scale: 1.1;
-    color: $second-color;
-    background-color: #444;
-  }
+.cart-button {
+  @include open-close;
+  margin-top: 2rem;
 
   & ~ input:checked ~ .cart {
+    @include flex-center-column;
     height: 100%;
-    z-index: 1000;
     width: 100%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    padding-bottom: 3rem;
-    border: 0.5rem solid $title-color;
-    border-right: none;
-    height: 100%;
+    padding: 2rem;
+    border-left: 0.5rem solid $light-gray-color;
     transform: translateY(0);
     transition: all 1s ease;
+    z-index: 1000;
+
     h2 {
       margin: 2rem;
       text-align: center;
     }
+
     ul {
       display: flex;
       flex-direction: column;
       flex-flow: wrap;
+
       .cartList {
         flex: 0 1 auto;
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(1rem, 1fr));
         border: none;
-        background-color: #141414;
+        background-color: darken($light-gray-color, 85);
         padding: 1rem;
       }
     }
   }
 }
+
 @media screen and (max-width: 767px) {
   .cart {
     max-width: none;
-    width: 100%;
-    border: 0.5rem solid $title-color;
-
+    border: 0.5rem solid $green-color;
   }
+
   .cart-button {
     & ~ input:checked ~ .cart {
       border: none;

@@ -2,16 +2,17 @@
 
 $header-height: 3.5rem;
 // Color
-$first-color: hsl(219, 69%, 56%);
-$first-color-alt: hsl(219, 69%, 52%);
-$title-color: hsl(219, 8%, 95%);
-$text-color: hsl(219, 8%, 75%);
-$text-color-ligth: hsl(219, 4%, 55%);
-$white-color: #fff;
-$navbar-color: hsl(219, 4%, 7%);
-$body-color: hsl(219, 4%, 12%);
-$container-color: hsl(219, 8%, 95%);
-$second-color: rgb(11, 255, 11);
+$light-green-color: hsl(120, 100%, 50%);
+$green-color: hsl(120, 100%, 44%);
+$dark-green-color: hsl(120, 100%, 30%);
+$light-blue-color: hsl(195, 100%, 50%);
+$dark-blue-color: hsl(202, 100%, 30%);
+$white-color: hsl(0, 0%, 100%);
+$black-color: hsla(0, 0%, 10%, 0.8);
+$navbar-color: hsl(0, 0%, 10%);
+$body-color: hsl(0, 0%, 14%);
+$container-color: hsl(0, 0%, 8%);
+$light-gray-color: hsl(0, 0%, 78%);
 // Font & typography
 $body-font: "Exo", sans-serif;
 $h1-font-size: 1.5rem;
@@ -26,6 +27,10 @@ $font-semi-bold: 600;
 // z index
 $z-tooltip: 10;
 $z-fixed: 100;
+// loader
+$spinner-size: 5rem;
+$spinner-margin: 2.5rem;
+$spinner-animation-duration: 1.2s;
 // Responsive typography
 @media screen and (min-width: 968px) {
   :root {
@@ -37,3 +42,74 @@ $z-fixed: 100;
     $smaller-font-size: 0.813rem;
   }
 }
+
+@mixin spinner-div($index) {
+  transform: rotate(30deg * $index);
+  animation-delay: (-0.1s * $index);
+}
+
+
+@mixin button-styles {
+  cursor: pointer;
+  padding: 0.3rem 1.7rem;
+  margin: 0.35rem;
+  border: 1px solid $dark-blue-color;
+  background-color: transparent;
+  color: $white-color;
+  font-size: $h3-font-size;
+  font-weight: $font-semi-bold;
+  transition: all 0.35s;
+  border-radius: .2rem;
+  
+  &:hover {
+    border-radius: .4rem;
+    background-color: $light-blue-color;
+    color: $body-color;
+    transform: scale(1.03);
+  }
+}
+
+@mixin image-styles {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  width: 40rem;
+  filter: drop-shadow(1px 1px 0.09rem $white-color);
+  transition: all 0.3s;
+
+  &:hover {
+    transform: scale(1.04);
+    transition: all 0.15s;
+    filter: drop-shadow(1px 1px 0.2rem $light-gray-color);
+  }
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-center-column {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+@mixin open-close {
+  @include flex-center;
+  background-color: $green-color;
+  margin-top: 0rem;
+  padding: 0.5rem 1.5rem;
+  color: $body-color;
+  cursor: pointer;
+  font-size: 2rem;
+  transition: all 0.23s ease;
+
+  &:hover {
+    transition: all 0.23s ease;
+    transform: scale(1.1);
+    color: $white-color;
+    background-color: $dark-green-color;
+  }
+}
+
