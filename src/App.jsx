@@ -18,15 +18,15 @@ function App() {
         <Navbar />
         <Routes>
           <Route
-            path="/"
+            path="motoland"
             element={<Main />}
           />
           <Route
-            path="motos"
+            path="motoland/motos"
             element={<AllMotos />}
           />
           <Route
-            path="motos/:id"
+            path="motoland/motos/:id"
             element={<Moto />}
           />
           <Route

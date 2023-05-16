@@ -10,7 +10,8 @@ const Links = () => {
               (isActive ? "active" : "") || "nav__link"
             }
             translate="no"
-            to="/">
+            to="/motoland"
+          >
             Home
           </NavLink>
         </li>
@@ -21,7 +22,8 @@ const Links = () => {
               (isActive ? "active" : "") || "nav__link"
             }
             translate="no"
-            to="/about">
+            to="/about"
+          >
             About
           </NavLink>
         </li>
@@ -32,7 +34,8 @@ const Links = () => {
               (isActive ? "active" : "") || "nav__link"
             }
             translate="no"
-            to="/more">
+            to="/more"
+          >
             More
           </NavLink>
         </li>
@@ -43,11 +46,11 @@ const Links = () => {
               (isActive ? "active" : "") || "nav__link"
             }
             translate="no"
-            to="/contact">
+            to="/contact"
+          >
             Contact
           </NavLink>
         </li>
-
       </ul>
     </nav>
   );

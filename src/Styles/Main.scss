@@ -1,225 +1,50 @@
 @import "./Variables.scss";
-.motos {
-  display: flex;
-  overflow: auto;
-  scroll-snap-type: x mandatory;
-  padding: 1.5rem 0;
-  scroll-padding: 0.5rem;
-  li {
-    flex: 0 0 28%;
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-    text-align: center;
-    font-weight: $font-semi-bold;
-    .add {
-      background-color: transparent;
-      border: none;
-      padding: 0;
-      font-size: x-large;
-      color: $second-color;
-    }
-    .img {
-      border: none;
-      &:hover {
-        background-color: transparent;
-      }
-    }
-  }
-}
 
-section {
-  display: flex;
-  .cart {
-    width: 70%;
-    div {
-      display: flex;
-      justify-content: center;
-      margin-top: 1rem;
-    }
-    ul {
-      display: flex;
-      justify-content: center;
-      display: flex;
-      overflow: auto;
-      scroll-snap-type: x mandatory;
-      padding: 1.3rem 0;
-      scroll-padding: 0.5rem;
-      li {
-        flex: 0 0 10%;
-        border: 0.1rem solid $white-color;
-        margin: 0.2rem;
-        scroll-snap-align: start;
-        text-align: center;
-        div {
-          display: grid;
-          place-items: center;
-          padding: 1rem;
-        }
-        img {
-          filter: none;
-          &:hover {
-            transform: none;
-            filter: none;
-          }
-        }
-        .buttons {
-          > * {
-            font-size: 90%;
-          }
-        }
-      }
-    }
-  }
-}
-
-.headers {
-  display: grid;
-  place-items: center;
-  .filters {
-    width: 100%;
-  }
-}
-.section {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  align-items: center;
-  .form {
-    margin-top: 2rem;
-    display: grid;
-    place-items: center;
-    padding: 2rem 0;
-    width: 30%;
-    height: 15rem;
-    border: 0.3rem solid $second-color;
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-    background-color: $body-color;
-    z-index: 100;
-    h3 {
-      margin: 0.8rem;
-    }
-    .modal-content {
-      display: grid;
-      place-items: center;
-    }
-    form {
-      display: grid;
-      place-items: center;
-      gap: 2rem;
-      margin-bottom: 2rem;
-      input {
-        max-width: 18rem;
-        background-color: transparent;
-        border: 0;
-        border-bottom: 0.1rem solid $text-color-ligth;
-        font-size: 1rem;
-        padding: 0.1rem;
-        text-align: center;
-      }
-    }
-  }
-}
-
-.modal-container {
-  height: auto;
-  width: auto;
-  position: absolute;
-  padding: 2rem;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border: 0.3rem solid $white-color;
-  .close {
-    color: $text-color-ligth;
-    font-size: 2rem;
-    cursor: pointer;
-  }
-  .close:hover {
-    color: $second-color;
-  }
-}
 .main {
   display: grid;
   place-items: center;
 }
+
 .error {
   display: grid;
   place-items: center;
   gap: 1rem;
 }
 
-.link {
-  display: grid;
-  place-items: center;
+.section {
+  @include flex-center;
+  gap: 2rem;
+
+  .form {
+    margin: 2rem 0 0 0;
+  }
 }
+
 .motoList {
   display: grid;
   place-items: center;
   grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr));
   margin: 2rem 0;
   gap: 2rem;
-  .li {
+
+  li {
     padding: 3rem;
     gap: 1rem;
     display: grid;
     place-items: center;
-    background-color: #000;
+    background-color: $container-color;
+
     .button {
+      @include flex-center;
       border: none;
-      color: $second-color;
       padding: 1rem 3rem;
-      background: #101010;
+      background: $dark-blue-color;
       gap: 0.5rem;
       margin: 0;
-      &:hover {
-        background: #212121;
-        color: $second-color;
-      }
-    }
-  }
-}
-.li {
-  display: grid;
-  place-items: center;
-  .button {
-    border: $text-color-ligth 1px solid;
-    padding: 2rem;
-    font-size: 1rem;
-    &:hover {
-      color: $body-color;
-    }
-  }
-}
-.label{
-  cursor: pointer;
-  font-size: 1.3rem;
-  &:hover{
-    color: $second-color;
-  }
-}
-@media screen and (max-width: 768px) {
-  .motos {
-    li {
-      flex: 0 0 60%;
-      > * {
-        padding: 0;
-      }
-    }
-  }
-  section {
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    .form {
-      width: 100%;
-      height: auto;
-    }
-  }
 
-  .modal-container {
-    height: auto;
-    width: 90%;
-    z-index: 100;
+      &:hover {
+        background: $light-blue-color;
+      }
+    }
   }
 }

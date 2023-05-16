@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { CSSTransition } from "react-transition-group";
 import { TfiMenu, TfiClose } from "react-icons/tfi";
+
 import NavLinks from "./NavLinks";
 
 const MobileNavigation = () => {
@@ -25,7 +26,7 @@ const MobileNavigation = () => {
       {open ? closeIcon : hamburguerIcon}
       <CSSTransition
         in={open}
-        timeout={250}
+        timeout={150}
         classNames="nav-transition"
         unmountOnExit>
         <NavLinks />

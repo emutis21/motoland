@@ -24,7 +24,6 @@ const Cart = ({
     <button onClick={() => dispatch(clearCart())}>Clear cart</button>
   );
 
-  
 
   return (
     <div>
@@ -72,12 +71,12 @@ const Cart = ({
         <div>
           {cartLength === 0 ? null : (
             <div>
-              {clearCartButton}
               <Link
                 className="button"
                 to="cart">
                 View Cart
               </Link>
+              {clearCartButton}
             </div>
           )}
         </div>

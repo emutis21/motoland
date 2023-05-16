@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { RiCloseCircleLine } from "react-icons/ri";
-import { Dropdown } from "./Dropdown";
 
 const initialForm = {
   content: "",
@@ -79,7 +78,6 @@ const CrudForm = ({
 
             <h3>{dataToEdit ? "Edit" : "Add" || dataToEdit}</h3>
             <form onSubmit={handleSubmit}>
-              <Dropdown />
 
               <input
                 type="url"
