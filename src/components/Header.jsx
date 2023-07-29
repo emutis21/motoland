@@ -5,7 +5,6 @@ const Header = ({ changeFilters }) => {
     <div className="headers">
       <h1>Choose the motorcycle of your dreams</h1>
       <Filters onChange={changeFilters} />
-      
     </div>
   );
 };

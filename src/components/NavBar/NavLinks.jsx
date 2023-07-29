@@ -1,6 +1,13 @@
 import { NavLink } from "react-router-dom";
+import Cart from "../Cart";
 
-const Links = () => {
+const Links = ({
+  cart,
+  cartCheckboxId,
+  dispatch,
+  cartIsOpen,
+  setCartIsOpen,
+}) => {
   return (
     <nav className="nav__menu">
       <ul className="nav__list">
@@ -10,7 +17,7 @@ const Links = () => {
               (isActive ? "active" : "") || "nav__link"
             }
             translate="no"
-            to="/motoland"
+            to="/motoland/"
           >
             Home
           </NavLink>
@@ -22,7 +29,7 @@ const Links = () => {
               (isActive ? "active" : "") || "nav__link"
             }
             translate="no"
-            to="/about"
+            to="/motoland/about"
           >
             About
           </NavLink>
@@ -34,7 +41,7 @@ const Links = () => {
               (isActive ? "active" : "") || "nav__link"
             }
             translate="no"
-            to="/more"
+            to="/motoland/more"
           >
             More
           </NavLink>
@@ -46,10 +53,20 @@ const Links = () => {
               (isActive ? "active" : "") || "nav__link"
             }
             translate="no"
-            to="/contact"
+            to="/motoland/contact"
           >
             Contact
           </NavLink>
+        </li>
+
+        <li className="nav__item">
+          <Cart
+            cart={cart}
+            cartCheckboxId={cartCheckboxId}
+            cartIsOpen={cartIsOpen}
+            setCartIsOpen={setCartIsOpen}
+            dispatch={dispatch}
+          />
         </li>
       </ul>
     </nav>

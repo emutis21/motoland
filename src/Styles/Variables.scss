@@ -9,10 +9,11 @@ $light-blue-color: hsl(195, 100%, 50%);
 $dark-blue-color: hsl(202, 100%, 30%);
 $white-color: hsl(0, 0%, 100%);
 $black-color: hsla(0, 0%, 10%, 0.8);
-$navbar-color: hsl(0, 0%, 10%);
-$body-color: hsl(0, 0%, 14%);
+$navbar-color: hsl(0, 0%, 8%);
+$body-color: hsl(0, 0%, 4%);
 $container-color: hsl(0, 0%, 8%);
 $light-gray-color: hsl(0, 0%, 78%);
+$red-color: hsl(0, 100%, 40%);
 // Font & typography
 $body-font: "Exo", sans-serif;
 $h1-font-size: 1.5rem;
@@ -48,7 +49,6 @@ $spinner-animation-duration: 1.2s;
   animation-delay: (-0.1s * $index);
 }
 
-
 @mixin button-styles {
   cursor: pointer;
   padding: 0.3rem 1.7rem;
@@ -59,10 +59,10 @@ $spinner-animation-duration: 1.2s;
   font-size: $h3-font-size;
   font-weight: $font-semi-bold;
   transition: all 0.35s;
-  border-radius: .2rem;
-  
+  border-radius: 0.2rem;
+
   &:hover {
-    border-radius: .4rem;
+    border-radius: 0.4rem;
     background-color: $light-blue-color;
     color: $body-color;
     transform: scale(1.03);
@@ -95,21 +95,12 @@ $spinner-animation-duration: 1.2s;
   flex-direction: column;
 }
 
-@mixin open-close {
-  @include flex-center;
-  background-color: $green-color;
-  margin-top: 0rem;
-  padding: 0.5rem 1.5rem;
-  color: $body-color;
-  cursor: pointer;
-  font-size: 2rem;
-  transition: all 0.23s ease;
-
-  &:hover {
-    transition: all 0.23s ease;
-    transform: scale(1.1);
-    color: $white-color;
-    background-color: $dark-green-color;
-  }
+.n-error {
+  background-color: $light-gray-color !important;
+  color: $container-color !important;
 }
 
+.n-success {
+  background-color: $dark-blue-color !important;
+  color: $white-color !important;
+}

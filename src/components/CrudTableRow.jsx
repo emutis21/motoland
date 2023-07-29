@@ -5,29 +5,29 @@ const CrudTableRow = ({
   setDataToEdit,
   deleteData,
   addToCart,
-  cartCheckboxId,
-  cartIsOpen,
+  setIsModalOpen,
 }) => {
   let { id, content, name, price, description, city } = el;
 
   const handleEdit = () => {
     setDataToEdit(el);
+    setIsModalOpen(true);
   };
 
   return (
     <li>
-      <div>
+      <>
         <h2>{name}</h2>
-      </div>
+      </>
 
-      <label
+      <div
         className="add-to-cart"
-        htmlFor={cartIsOpen ? null : cartCheckboxId}
+        // htmlFor={cartIsOpen ? null : cartCheckboxId}
         onClick={() => addToCart(el)}
       >
         <RiAddCircleLine />
         <img src={content} alt={name} />
-      </label>
+      </div>
 
       <h3>{description}</h3>
       <h4>{city}</h4>

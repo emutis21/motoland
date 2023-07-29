@@ -16,6 +16,7 @@ import Message from "../components/Message";
 import Header from "../components/Header";
 
 import "../styles/Main.scss";
+import { ToastBar, Toaster, toast } from "react-hot-toast";
 
 const Main = () => {
   const state = useSelector((state) => state);
@@ -39,9 +40,16 @@ const Main = () => {
 
   useEffect(() => {
     setLoading(true);
+
+    const timeout = setTimeout(() => {
+      setLoading(false);
+      setError({ status: "Timeout", statusText: "Request took too long" });
+    }, 5000);
+
     helpHttp()
       .get(url)
       .then((res) => {
+        clearTimeout(timeout);
         if (!res.err) {
           dispatch(readAllAction(res));
           setError(null);
@@ -50,8 +58,13 @@ const Main = () => {
           setError(res);
         }
         setLoading(false);
+      })
+      .catch((error) => {
+        clearTimeout(timeout);
+        setLoading(false);
+        setError({ status: "Error", statusText: error.message });
       });
-  }, [url, dispatch]);
+  }, [dispatch]);
 
   const createData = (data) => {
     data.id = Date.now();
@@ -89,7 +102,7 @@ const Main = () => {
 
   const deleteData = (id) => {
     let isDelete = window.confirm(
-      `¿Estás seguro de eliminar el registro con el id '${id}'?`
+      `¿Are you sure to delete the motorcycle with the id '${id}'?`
     );
 
     if (isDelete) {
@@ -112,13 +125,22 @@ const Main = () => {
 
   const filteredMotos = filterMotos(db);
 
+  const handleReload = () => {
+    window.location.reload();
+  };
+
   return (
     <main className="container">
       <Header changeFilters={setFilters} />
 
       <div className="main">
         {loading && <Loader />}
-        {error && <Message msg={`Error ${error.status}:${error.statusText}`} />}
+        {error && (
+          <>
+            <Message msg={`${error.status}:${error.statusText}`} />
+            <button onClick={handleReload}>Reload</button>
+          </>
+        )}
       </div>
 
       {db && (

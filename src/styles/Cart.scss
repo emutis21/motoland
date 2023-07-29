@@ -1,22 +1,22 @@
 @import "./Variables.scss";
 
 .cart {
-  background-color: $container-color;
+  background-color: darken($dark-blue-color, 26);
   display: none;
   position: fixed;
-  right: 0px;
-  top: 0px;
+  right: 0;
+  top: 0;
   max-width: 35%;
   height: 0;
   transform: translateY(100%);
   transition: all 1s ease;
-
+  a {
+    @include flex-center;
+  }
   div {
     @include flex-center;
-    margin-top: 1rem;
-
-    &:first-child {
-      margin-top: none;
+    &:last-child {
+      margin: 1rem 0 0.2rem 0;
     }
   }
 
@@ -24,8 +24,9 @@
     @include flex-center;
     overflow: auto;
     scroll-snap-type: x mandatory;
-    padding: 1.3rem 0;
+    padding: 0 0.8rem;
     scroll-padding: 0.5rem;
+    gap: 1rem;
 
     li {
       flex: 0 0 10%;
@@ -37,7 +38,7 @@
       div {
         display: grid;
         place-items: center;
-        padding: 1rem;
+        padding: 0.5rem;
       }
 
       img {
@@ -54,32 +55,63 @@
       }
     }
   }
-
-  button {
-    font-size: $h2-font-size;
-  }
-}
-
-.cart-button-close {
-  @include open-close;
 }
 
 .cart-button {
-  @include open-close;
-  margin-top: 2rem;
+  @include flex-center;
+  position: relative;
 
+  cursor: pointer;
+  border-radius: 0.2rem;
+  transition: all 015s ease-in-out;
+  .counter {
+    position: absolute;
+    top: 4px;
+    right: 2px;
+    background-color: $white-color;
+    color: $dark-blue-color;
+    font-size: $small-font-size;
+    font-weight: $font-semi-bold;
+    padding: 3% 10%;
+    border-radius: 50%;
+    transform: translate(50%, -50%);
+  }
+  .cart-button-close {
+    font-size: $h1-font-size;
+    border-radius: 0.2rem;
+    width: auto;
+    height: auto;
+    padding: 0.3rem 1.5rem;
+    background-color: $light-blue-color;
+    color: $container-color;
+    transition: all 0.15s ease-in-out;
+    &:hover {
+      color: $white-color;
+      background-color: $dark-blue-color;
+      border-radius: 0.4rem;
+      > * {
+        transform: scale(1.1);
+      }
+    }
+  }
   & ~ input:checked ~ .cart {
-    @include flex-center-column;
-    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: auto;
+    max-height: 85vh;
+    top: $header-height;
     width: 100%;
-    padding: 2rem;
-    border-left: 0.5rem solid $light-gray-color;
+    padding: 1%;
+    border-bottom: 0.5rem solid darken($dark-blue-color, 16);
+    border-left: 0.5rem solid darken($dark-blue-color, 16);
+    border-radius: 0.4rem;
     transform: translateY(0);
     transition: all 1s ease;
-    z-index: 1000;
-
+    z-index: $z-tooltip;
+    
     h2 {
-      margin: 2rem;
+      margin: 1rem;
       text-align: center;
     }
 
@@ -93,13 +125,88 @@
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(1rem, 1fr));
         border: none;
-        background-color: darken($light-gray-color, 85);
-        padding: 1rem;
+        background-color: darken($dark-blue-color, 16);
+        padding: 1rem 0;
+        border-radius: 0.2rem;
       }
     }
   }
 }
+.cart-button {
+  @include flex-center;
+  position: relative;
 
+  cursor: pointer;
+  border-radius: 0.2rem;
+  transition: all 015s ease-in-out;
+  .counter {
+    position: absolute;
+    top: 4px;
+    right: 2px;
+    background-color: $white-color;
+    color: $dark-blue-color;
+    font-size: $small-font-size;
+    font-weight: $font-semi-bold;
+    padding: 3% 10%;
+    border-radius: 50%;
+    transform: translate(50%, -50%);
+  }
+  .cart-button-close {
+    font-size: $h1-font-size;
+    border-radius: 0.2rem;
+    width: auto;
+    height: auto;
+    padding: 0.3rem 1.5rem;
+    background-color: $light-blue-color;
+    color: $container-color;
+    transition: all 0.15s ease-in-out;
+    &:hover {
+      color: $white-color;
+      background-color: $dark-blue-color;
+      border-radius: 0.4rem;
+      > * {
+        transform: scale(1.1);
+      }
+    }
+  }
+  & ~ input:checked ~ .cart {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: auto;
+    max-height: 85vh;
+    top: $header-height;
+    width: 100%;
+    padding: 1%;
+    border-bottom: 0.5rem solid darken($dark-blue-color, 16);
+    border-left: 0.5rem solid darken($dark-blue-color, 16);
+    border-radius: 0.4rem;
+    transform: translateY(0);
+    transition: all 1s ease;
+    z-index: $z-tooltip;
+
+    h2 {
+      margin: 1rem;
+      text-align: center;
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      flex-flow: wrap;
+
+      .cartList {
+        flex: 0 1 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(1rem, 1fr));
+        border: none;
+        background-color: darken($dark-blue-color, 16);
+        padding: 1rem 0;
+        border-radius: 0.2rem;
+      }
+    }
+  }
+}
 @media screen and (max-width: 767px) {
   .cart {
     max-width: none;

@@ -1,0 +1,167 @@
+
+@import "./Variables.scss";
+
+.section {
+  @include flex-center;
+  margin: 2rem 0 0 0;
+
+  .form {
+    @include flex-center-column;
+    place-items: center;
+
+    .modal-container {
+      display: grid;
+      justify-content: center;
+      width: 100%;
+
+      .modal,
+      .img-modal {
+        max-width: 800px;
+        padding: 10%;
+        background-color: $navbar-color;
+
+        .img {
+          width: 100%;
+        }
+
+        .modal-content {
+          display: grid;
+          gap: 2rem;
+          flex-basis: 150px;
+
+          fieldset {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            font-size: $h1-font-size;
+            gap: 2rem;
+            border: none;
+            padding: 3rem 0 0 0;
+
+            legend {
+              width: 100%;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+            }
+
+            .input-box {
+              flex-grow: 1;
+              flex-basis: calc(100% / 3 - 2rem);
+
+              position: relative;
+              width: 100%;
+
+              & select {
+                color: $light-gray-color;
+                border: 1px solid $light-gray-color;
+                font-size: $h3-font-size;
+                padding: 1rem 0.6rem;
+                border-radius: 0.2rem;
+                background-color: transparent;
+                outline: none;
+                width: 100%;
+                transition: all 0.3s;
+
+                option {
+                  font-size: $h3-font-size;
+                  background-color: $navbar-color;
+                  color: $white-color;
+                }
+
+                &:focus {
+                  color: $light-blue-color;
+                  border: 1px solid $light-blue-color;
+                  border-radius: 0.4rem;
+                }
+              }
+
+              label {
+                position: absolute;
+                top: 0;
+                left: 0;
+                padding: 1rem;
+                pointer-events: none;
+                transition: 0.3s;
+                font-size: $h3-font-size;
+              }
+
+              input,
+              input:valid {
+                width: 100%;
+                padding: 1rem;
+                background-color: transparent;
+                color: $white-color;
+                border: 1px solid $light-gray-color;
+                border-radius: 0.2rem;
+                outline: none;
+                font-size: $h3-font-size;
+                transition: all 0.3s;
+
+                &:focus {
+                  border: 1px solid $light-blue-color;
+                  border-radius: 0.4rem;
+                }
+
+                &:focus ~ label,
+                &:valid ~ label {
+                  transform: translateX(1rem) translateY(-0.45rem);
+                  color: $light-blue-color;
+                  padding: 0 1rem;
+                  border-left: 1px solid $light-blue-color;
+                  border-right: 1px solid $light-blue-color;
+                  background-color: $navbar-color;
+                  font-size: $small-font-size;
+                }
+
+                &.validate {
+                  border-color: $red-color !important;
+                  animation: invalid 0.3s 1;
+
+                  & ~ label {
+                    border-color: $red-color !important;
+                    color: $light-gray-color !important;
+                  }
+                }
+              }
+            }
+          }
+
+          button {
+            margin: 0;
+            width: auto;
+            place-self: center;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes invalid {
+  25% {
+    transform: translate(3px, 0);
+  }
+
+  50% {
+    transform: translate(-3px, 0);
+  }
+
+  75% {
+    transform: translate(3px, 0);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  fieldset {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: black;
+  }
+
+ .input-box {
+    flex-basis: 100%;
+  }
+}

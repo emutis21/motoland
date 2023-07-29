@@ -11,15 +11,6 @@
   gap: 1rem;
 }
 
-.section {
-  @include flex-center;
-  gap: 2rem;
-
-  .form {
-    margin: 2rem 0 0 0;
-  }
-}
-
 .motoList {
   display: grid;
   place-items: center;
@@ -45,6 +36,33 @@
       &:hover {
         background: $light-blue-color;
       }
+    }
+  }
+}
+
+
+.confirmation-dialog {
+  background-color: white;
+  border-radius: 8px;
+  padding: 16px;
+  max-width: 400px;
+  margin: 0 auto;
+
+  h2 {
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+
+  p {
+    margin-bottom: 16px;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: flex-end;
+
+    button {
+      margin-left: 8px;
     }
   }
 }

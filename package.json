@@ -10,12 +10,12 @@
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "fake-api": "json-server --watch src/api/db.json --port 5000",
-    "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hot-toast": "^2.4.1",
     "react-icons": "^4.8.0",
     "react-redux": "^8.0.5",
     "react-transition-group": "^4.4.5"
