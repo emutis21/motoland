@@ -1,5 +1,4 @@
-
-@import "./Variables.scss";
+@import './Variables.scss';
 
 .section {
   @include flex-center;
@@ -161,7 +160,7 @@
     background-color: black;
   }
 
- .input-box {
+  .input-box {
     flex-basis: 100%;
   }
 }

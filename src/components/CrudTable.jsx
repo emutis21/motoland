@@ -1,12 +1,12 @@
-import { TbChevronRight } from "react-icons/tb";
-import { Link } from "react-router-dom";
-import { addToCart } from "../actions/shoppingActions";
-import { useId } from "react";
+import { TbChevronRight } from 'react-icons/tb'
+import { Link } from 'react-router-dom'
+import { addToCart } from '../actions/shoppingActions'
+import { useId } from 'react'
 
-import CrudForm from "./CrudForm";
-import CrudTableRow from "./CrudTableRow";
+import CrudForm from './CrudForm'
+import CrudTableRow from './CrudTableRow'
 
-import "../styles/CrudTable.scss";
+import '../styles/CrudTable.scss'
 
 const CrudTable = ({
   data,
@@ -19,9 +19,9 @@ const CrudTable = ({
   dataToEdit,
   isModalOpen,
 }) => {
-  const { length: dataLength } = data;
+  const { length: dataLength } = data
 
-  const cartCheckboxId = useId();
+  const cartCheckboxId = useId()
 
   return (
     <>
@@ -60,7 +60,7 @@ const CrudTable = ({
         />
       </section>
     </>
-  );
-};
+  )
+}
 
-export default CrudTable;
+export default CrudTable

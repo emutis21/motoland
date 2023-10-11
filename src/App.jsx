@@ -1,15 +1,15 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { lazy, Suspense } from "react";
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { lazy, Suspense } from 'react'
 
-import Navbar from "./components/NavBar/Navbar";
-import Main from "./routes/Main";
-import ViewCart from "./routes/ViewCart";
+import Navbar from './components/NavBar/Navbar'
+import Main from './routes/Main'
+import ViewCart from './routes/ViewCart'
 
-const Contact = lazy(() => import("./routes/Contact"));
-const About = lazy(() => import("./routes/About"));
-const Error = lazy(() => import("./routes/Error"));
-const AllMotos = lazy(() => import("./routes/AllMotos"));
-const Moto = lazy(() => import("./routes/Moto"));
+const Contact = lazy(() => import('./routes/Contact'))
+const About = lazy(() => import('./routes/About'))
+const Error = lazy(() => import('./routes/Error'))
+const AllMotos = lazy(() => import('./routes/AllMotos'))
+const Moto = lazy(() => import('./routes/Moto'))
 
 function App() {
   return (
@@ -27,7 +27,7 @@ function App() {
         </Routes>
       </Suspense>
     </BrowserRouter>
-  );
+  )
 }
 
-export default App;
+export default App

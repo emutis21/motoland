@@ -3,7 +3,7 @@ const Message = ({ msg, bgColor }) => {
     <div className="msg">
       <h2>{msg}</h2>
     </div>
-  );
-};
+  )
+}
 
-export default Message;
+export default Message

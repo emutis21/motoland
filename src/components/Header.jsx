@@ -1,4 +1,4 @@
-import { Filters } from "./Filters";
+import { Filters } from './Filters'
 
 const Header = ({ changeFilters }) => {
   return (
@@ -6,7 +6,7 @@ const Header = ({ changeFilters }) => {
       <h1>Choose the motorcycle of your dreams</h1>
       <Filters onChange={changeFilters} />
     </div>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

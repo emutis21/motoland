@@ -1,64 +1,28 @@
-import { NavLink } from "react-router-dom";
-import Cart from "../Cart";
+import { NavLink } from 'react-router-dom'
+import Cart from '../Cart'
 
-const Links = ({
-  cart,
-  cartCheckboxId,
-  dispatch,
-  cartIsOpen,
-  setCartIsOpen,
-}) => {
+const navigationLinks = [
+  { to: '/motoland/', text: 'Home' },
+  { to: '/motoland/about', text: 'About' },
+  { to: '/motoland/more', text: 'More' },
+  { to: '/motoland/contact', text: 'Contact' },
+]
+
+const Links = ({ cart, cartCheckboxId, dispatch, cartIsOpen, setCartIsOpen }) => {
   return (
     <nav className="nav__menu">
       <ul className="nav__list">
-        <li className="nav__item">
-          <NavLink
-            className={({ isActive }) =>
-              (isActive ? "active" : "") || "nav__link"
-            }
-            translate="no"
-            to="/motoland/"
-          >
-            Home
-          </NavLink>
-        </li>
-
-        <li className="nav__item">
-          <NavLink
-            className={({ isActive }) =>
-              (isActive ? "active" : "") || "nav__link"
-            }
-            translate="no"
-            to="/motoland/about"
-          >
-            About
-          </NavLink>
-        </li>
-
-        <li className="nav__item">
-          <NavLink
-            className={({ isActive }) =>
-              (isActive ? "active" : "") || "nav__link"
-            }
-            translate="no"
-            to="/motoland/more"
-          >
-            More
-          </NavLink>
-        </li>
-
-        <li className="nav__item">
-          <NavLink
-            className={({ isActive }) =>
-              (isActive ? "active" : "") || "nav__link"
-            }
-            translate="no"
-            to="/motoland/contact"
-          >
-            Contact
-          </NavLink>
-        </li>
-
+        {navigationLinks.map((link, index) => (
+          <li className="nav__item" key={index}>
+            <NavLink
+              className={({ isActive }) => (isActive ? 'active' : '') || 'nav__link'}
+              translate="no"
+              to={link.to}
+            >
+              {link.text}
+            </NavLink>
+          </li>
+        ))}
         <li className="nav__item">
           <Cart
             cart={cart}
@@ -70,7 +34,7 @@ const Links = ({
         </li>
       </ul>
     </nav>
-  );
-};
+  )
+}
 
-export default Links;
+export default Links

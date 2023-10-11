@@ -1,139 +1,119 @@
-import { useState, useEffect } from "react";
-import { Toaster, toast } from "react-hot-toast";
-import { MdArrowBackIos } from "react-icons/md";
+import { useState, useEffect } from 'react'
+import { Toaster, toast } from 'react-hot-toast'
+import { MdArrowBackIos } from 'react-icons/md'
 
-import "../styles/CrudForm.scss";
-import InputField from "./InputField";
+import '../styles/CrudForm.scss'
+import InputField from './InputField'
 
 const initialForm = {
   id: null,
-  content: "",
-  name: "",
-  description: "",
-  city: "",
-  brand: "",
-  price: "",
-};
+  content: '',
+  name: '',
+  description: '',
+  city: '',
+  brand: '',
+  price: '',
+}
 
 const capitalizeFirstLetter = (str) => {
-  return str.charAt(0).toUpperCase() + str.slice(1);
-};
+  return str.charAt(0).toUpperCase() + str.slice(1)
+}
 
-const requiredFields = ["content", "name", "description", "city", "price"];
-const brands = ["", "BMW", "TVS", "KTM", "Kawasaki", "Suzuki", "Yamaha"];
+const requiredFields = ['content', 'name', 'description', 'city', 'price']
+const brands = ['', 'BMW', 'TVS', 'KTM', 'Kawasaki', 'Suzuki', 'Yamaha']
 
-const CrudForm = ({
-  createData,
-  updateData,
-  dataToEdit,
-  setDataToEdit,
-  isModalOpen,
-  setIsModalOpen,
-}) => {
-  const [form, setForm] = useState(initialForm);
-  const [isUrlValid, setIsUrlValid] = useState(true);
+const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit, isModalOpen, setIsModalOpen }) => {
+  const [form, setForm] = useState(initialForm)
+  const [isUrlValid, setIsUrlValid] = useState(true)
 
   useEffect(() => {
-    setForm(dataToEdit || initialForm);
-  }, [dataToEdit]);
+    setForm(dataToEdit || initialForm)
+  }, [dataToEdit])
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    const formattedValue =
-      name === "price" && value.startsWith("0") ? value.slice(1) : value;
+    const { name, value } = e.target
+    const formattedValue = name === 'price' && value.startsWith('0') ? value.slice(1) : value
 
     setForm({
       ...form,
-      [name]: ["name", "description", "city"].includes(name)
-        ? capitalizeFirstLetter(formattedValue)
-        : formattedValue,
-    });
-  };
+      [name]: ['name', 'description', 'city'].includes(name) ? capitalizeFirstLetter(formattedValue) : formattedValue,
+    })
+  }
 
   const isURL = (input) => {
-    const urlPattern =
-      /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w.-]*)*\/?$/;
+    const urlPattern = /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w.-]*)*\/?$/
 
-    return urlPattern.test(input);
-  };
+    return urlPattern.test(input)
+  }
 
   const validateUrl = () => {
-    setIsUrlValid(isURL(form.content));
-  };
+    setIsUrlValid(isURL(form.content))
+  }
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     if (!isUrlValid) {
-      toast.error("Invalid URL");
-      return;
+      toast.error('Invalid URL')
+      return
     }
-    if (
-      Object.values(form).every(
-        (value, index) => value === Object.values(initialForm)[index]
-      )
-    ) {
-      toast.error("The form is empty", {
-        className: "n-error",
+    if (Object.values(form).every((value, index) => value === Object.values(initialForm)[index])) {
+      toast.error('The form is empty', {
+        className: 'n-error',
         duration: 2500,
-      });
-      return;
+      })
+      return
     }
 
     if (requiredFields.some((field) => !form[field])) {
-      toast.error("Incomplete data", {
-        className: "n-error",
+      toast.error('Incomplete data', {
+        className: 'n-error',
         duration: 2500,
-      });
-      return;
+      })
+      return
     }
 
     if (!form.brand) {
-      toast.error("Invalid brand", {
-        id: "n-error",
+      toast.error('Invalid brand', {
+        id: 'n-error',
         duration: 3500,
-      });
-      return;
+      })
+      return
     }
 
     if (!/^[A-Za-z\u00C0-\u017F\s]+$/.test(form.city)) {
-      toast.error("Invalid city data", {
+      toast.error('Invalid city data', {
         style: {},
-        id: "n-error",
+        id: 'n-error',
         duration: 3500,
-      });
-      return;
+      })
+      return
     }
 
-    const toastMessage =
-      form.id === null
-        ? "Motorcycle added successfully"
-        : "Motorcycle updated successfully";
-    const toastClassName = "n-success";
-    const toastDuration = 2000;
+    const toastMessage = form.id === null ? 'Motorcycle added successfully' : 'Motorcycle updated successfully'
+    const toastClassName = 'n-success'
+    const toastDuration = 2000
 
-    form.id === null ? createData(form) : updateData(form);
+    form.id === null ? createData(form) : updateData(form)
     toast.success(toastMessage, {
       className: toastClassName,
       duration: toastDuration,
-    });
+    })
 
-    setIsModalOpen(false);
-    handleReset();
-  };
+    setIsModalOpen(false)
+    handleReset()
+  }
 
   const handleReset = () => {
-    setForm(initialForm);
-    setDataToEdit(null);
-  };
+    setForm(initialForm)
+    setDataToEdit(null)
+  }
 
   return (
-    <div className={isModalOpen ? "modal-container" : "form"}>
+    <div className={isModalOpen ? 'modal-container' : 'form'}>
       {!isModalOpen && <h3>Add a new bike</h3>}
-      {!isModalOpen && (
-        <button onClick={() => setIsModalOpen(true)}>Open</button>
-      )}
+      {!isModalOpen && <button onClick={() => setIsModalOpen(true)}>Open</button>}
       {isModalOpen && (
-        <div className={dataToEdit ? "img-modal" : "modal"}>
+        <div className={dataToEdit ? 'img-modal' : 'modal'}>
           {dataToEdit && (
             <div className="img">
               <img src={form.content} alt="Bike" />
@@ -144,10 +124,10 @@ const CrudForm = ({
               <legend>
                 <MdArrowBackIos
                   onClick={() => {
-                    setIsModalOpen(false);
+                    setIsModalOpen(false)
                   }}
                 />
-                {dataToEdit ? "Edit your bike" : "Add a new bike"}
+                {dataToEdit ? 'Edit your bike' : 'Add a new bike'}
               </legend>
               <InputField
                 type="text"
@@ -160,14 +140,7 @@ const CrudForm = ({
                 autoFocus
                 onBlur={form.content && validateUrl}
               />
-              <InputField
-                type="text"
-                name="name"
-                label="Name"
-                value={form.name}
-                onChange={handleChange}
-                required
-              />
+              <InputField type="text" name="name" label="Name" value={form.name} onChange={handleChange} required />
               <InputField
                 type="text"
                 name="description"
@@ -176,24 +149,12 @@ const CrudForm = ({
                 onChange={handleChange}
                 required
               />
-              <InputField
-                type="text"
-                name="city"
-                label="City"
-                value={form.city}
-                onChange={handleChange}
-                required
-              />
+              <InputField type="text" name="city" label="City" value={form.city} onChange={handleChange} required />
               <div className="input-box">
-                <select
-                  name="brand"
-                  onChange={handleChange}
-                  value={form.brand}
-                  required
-                >
+                <select name="brand" onChange={handleChange} value={form.brand} required>
                   {brands.map((brand) => (
                     <option key={brand} value={brand}>
-                      {brand || "Brand"}
+                      {brand || 'Brand'}
                     </option>
                   ))}
                 </select>
@@ -216,7 +177,7 @@ const CrudForm = ({
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default CrudForm;
+export default CrudForm

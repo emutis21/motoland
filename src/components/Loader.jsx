@@ -1,22 +1,9 @@
-import "../styles/Loader.scss";
+import '../styles/Loader.scss'
 
 const Loader = () => {
-  return (
-    <div className="lds-spinner">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  );
-};
+  const loaderElements = Array.from({ length: 12 }, (_, index) => <div key={index}></div>)
 
-export default Loader;
+  return <div className="lds-spinner">{loaderElements}</div>
+}
+
+export default Loader

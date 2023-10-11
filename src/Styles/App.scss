@@ -1,4 +1,4 @@
-@import "./Variables.scss";
+@import './Variables.scss';
 // Base
 * {
   box-sizing: border-box;
@@ -85,8 +85,8 @@ input {
   caret-color: $dark-blue-color;
   accent-color: $light-blue-color;
 }
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
