@@ -16,12 +16,12 @@ const InputField = ({
       onChange={onChange}
       value={value}
       required={required}
-      className={!isValid ? "validate" : null}
+      className={!isValid ? 'validate' : null}
       autoFocus={autoFocus}
       onBlur={onBlur}
     />
     <label>{label}:</label>
   </div>
-);
+)
 
-export default InputField;
+export default InputField

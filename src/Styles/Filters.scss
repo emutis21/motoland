@@ -1,4 +1,4 @@
-@import "./Variables.scss";
+@import './Variables.scss';
 
 .filters {
   display: flex;
@@ -19,7 +19,7 @@
       font-size: $h3-font-size;
       border: 1px solid $green-color;
       padding: 0.3rem 0.2em;
-      border-radius: .2rem;
+      border-radius: 0.2rem;
       cursor: pointer;
 
       &::-ms-expand {

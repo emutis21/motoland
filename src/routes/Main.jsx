@@ -1,133 +1,122 @@
-import { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { helpHttp } from "../helpers/helpHttp";
+import { useEffect, useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { helpHttp } from '../helpers/helpHttp'
 
-import {
-  createAction,
-  deleteAction,
-  noAction,
-  readAllAction,
-  updateAction,
-} from "../actions/crudActions";
+import { createAction, deleteAction, noAction, readAllAction, updateAction } from '../actions/crudActions'
 
-import CrudTable from "../components/CrudTable";
-import Loader from "../components/Loader";
-import Message from "../components/Message";
-import Header from "../components/Header";
+import CrudTable from '../components/CrudTable'
+import Loader from '../components/Loader'
+import Message from '../components/Message'
+import Header from '../components/Header'
 
-import "../styles/Main.scss";
-import { ToastBar, Toaster, toast } from "react-hot-toast";
+import '../styles/Main.scss'
+import { ToastBar, Toaster, toast } from 'react-hot-toast'
 
 const Main = () => {
-  const state = useSelector((state) => state);
+  const state = useSelector((state) => state)
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
-  const { cart } = state.shopping;
+  const { cart } = state.shopping
 
-  const { db } = state.crud;
+  const { db } = state.crud
 
-  const [dataToEdit, setDataToEdit] = useState(null);
+  const [dataToEdit, setDataToEdit] = useState(null)
 
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(null)
 
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false)
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
-  let api = helpHttp();
-  let url = "http://localhost:5000/motos";
+  let api = helpHttp()
+  let url = 'http://localhost:5000/motos'
 
   useEffect(() => {
-    setLoading(true);
+    setLoading(true)
 
     const timeout = setTimeout(() => {
-      setLoading(false);
-      setError({ status: "Timeout", statusText: "Request took too long" });
-    }, 5000);
+      setLoading(false)
+      setError({ status: 'Timeout', statusText: 'Request took too long' })
+    }, 5000)
 
     helpHttp()
       .get(url)
       .then((res) => {
-        clearTimeout(timeout);
+        clearTimeout(timeout)
         if (!res.err) {
-          dispatch(readAllAction(res));
-          setError(null);
+          dispatch(readAllAction(res))
+          setError(null)
         } else {
-          dispatch(noAction());
-          setError(res);
+          dispatch(noAction())
+          setError(res)
         }
-        setLoading(false);
+        setLoading(false)
       })
       .catch((error) => {
-        clearTimeout(timeout);
-        setLoading(false);
-        setError({ status: "Error", statusText: error.message });
-      });
-  }, [dispatch]);
+        clearTimeout(timeout)
+        setLoading(false)
+        setError({ status: 'Error', statusText: error.message })
+      })
+  }, [dispatch])
 
   const createData = (data) => {
-    data.id = Date.now();
+    data.id = Date.now()
 
     let options = {
       body: data,
-      headers: { "content-type": "application/json" },
-    };
+      headers: { 'content-type': 'application/json' },
+    }
 
     api.post(url, options).then((res) => {
       if (!res.err) {
-        dispatch(createAction(res));
+        dispatch(createAction(res))
       } else {
-        setError(res);
+        setError(res)
       }
-    });
-  };
+    })
+  }
 
   const updateData = (data) => {
-    let endpoint = `${url}/${data.id}`;
+    let endpoint = `${url}/${data.id}`
 
     let options = {
       body: data,
-      headers: { "content-type": "application/json" },
-    };
+      headers: { 'content-type': 'application/json' },
+    }
 
     api.put(endpoint, options).then((res) => {
       if (!res.err) {
-        dispatch(updateAction(res));
+        dispatch(updateAction(res))
       } else {
-        setError(res);
+        setError(res)
       }
-    });
-  };
+    })
+  }
 
   const deleteData = (id) => {
-    let isDelete = window.confirm(
-      `¿Are you sure to delete the motorcycle with the id '${id}'?`
-    );
+    let isDelete = window.confirm(`¿Are you sure to delete the motorcycle with the id '${id}'?`)
 
     if (isDelete) {
-      dispatch(deleteAction(id));
+      dispatch(deleteAction(id))
     } else {
-      return;
+      return
     }
-  };
+  }
 
-  const [filters, setFilters] = useState({ brand: "all", minPrice: 0 });
+  const [filters, setFilters] = useState({ brand: 'all', minPrice: 0 })
 
   const filterMotos = (db) => {
     return db.filter((moto) => {
-      return (
-        moto.price >= filters.minPrice &&
-        (filters.brand === "all" || moto.brand === filters.brand)
-      );
-    });
-  };
+      return moto.price >= filters.minPrice && (filters.brand === 'all' || moto.brand === filters.brand)
+    })
+  }
 
-  const filteredMotos = filterMotos(db);
+  const filteredMotos = filterMotos(db)
 
   const handleReload = () => {
-    window.location.reload();
-  };
+    window.location.reload()
+  }
 
   return (
     <main className="container">
@@ -159,7 +148,7 @@ const Main = () => {
         />
       )}
     </main>
-  );
-};
+  )
+}
 
-export default Main;
+export default Main

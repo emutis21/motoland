@@ -1,18 +1,12 @@
-import { RiAddCircleLine } from "react-icons/ri";
+import { RiAddCircleLine } from 'react-icons/ri'
 
-const CrudTableRow = ({
-  el,
-  setDataToEdit,
-  deleteData,
-  addToCart,
-  setIsModalOpen,
-}) => {
-  let { id, content, name, price, description, city } = el;
+const CrudTableRow = ({ el, setDataToEdit, deleteData, addToCart, setIsModalOpen }) => {
+  let { id, content, name, price, description, city } = el
 
   const handleEdit = () => {
-    setDataToEdit(el);
-    setIsModalOpen(true);
-  };
+    setDataToEdit(el)
+    setIsModalOpen(true)
+  }
 
   return (
     <li>
@@ -37,7 +31,7 @@ const CrudTableRow = ({
         <button onClick={() => deleteData(id)}>Delete</button>
       </div>
     </li>
-  );
-};
+  )
+}
 
-export default CrudTableRow;
+export default CrudTableRow

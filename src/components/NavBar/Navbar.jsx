@@ -1,19 +1,19 @@
-import "../../styles/Navbar.scss";
+import '../../styles/Navbar.scss'
 
-import MobileNavigation from "./MobileNavigation";
-import NavLinks from "./NavLinks";
+import MobileNavigation from './MobileNavigation'
+import NavLinks from './NavLinks'
 
-import { RiMotorbikeFill } from "react-icons/ri";
-import { useSelector, useDispatch } from "react-redux";
-import { useId, useState } from "react";
+import { RiMotorbikeFill } from 'react-icons/ri'
+import { useSelector, useDispatch } from 'react-redux'
+import { useId, useState } from 'react'
 
 function Navbar() {
-  const state = useSelector((state) => state);
-  const cart = state.shopping.cart;
-  const cartCheckboxId = useId();
-  const dispatch = useDispatch();
+  const state = useSelector((state) => state)
+  const cart = state.shopping.cart
+  const cartCheckboxId = useId()
+  const dispatch = useDispatch()
 
-  const [cartIsOpen, setCartIsOpen] = useState(false);
+  const [cartIsOpen, setCartIsOpen] = useState(false)
   return (
     <header className="header">
       <nav className="nav">
@@ -32,6 +32,6 @@ function Navbar() {
         <MobileNavigation />
       </nav>
     </header>
-  );
+  )
 }
-export default Navbar;
+export default Navbar

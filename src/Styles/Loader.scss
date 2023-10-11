@@ -1,4 +1,4 @@
-@import "./Variables.scss";
+@import './Variables.scss';
 
 @keyframes lds-spinner {
   0% {
@@ -23,7 +23,7 @@
     animation: lds-spinner $spinner-animation-duration linear infinite;
 
     &:after {
-      content: " ";
+      content: ' ';
       display: block;
       position: absolute;
       top: 3px;
