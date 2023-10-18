@@ -84,8 +84,6 @@ const Main = () => {
     window.location.reload()
   }
 
-  console.log(db)
-
   return (
     <main className='container'>
       <Header changeFilters={setFilters} />

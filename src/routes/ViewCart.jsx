@@ -9,7 +9,6 @@ const ViewCart = () => {
   const [cartIsOpen, setCartIsOpen] = useState(false)
   const dispatch = useDispatch()
 
-  console.log(cart)
   return (
     <div className='container'>
       <h1>Cart</h1>

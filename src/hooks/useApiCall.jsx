@@ -3,9 +3,8 @@ import { useDispatch } from 'react-redux'
 import { helpHttp } from '../helpers/helpHttp'
 import { readAllAction, noAction } from '../actions/crudActions'
 
-
 const useApiCall = () => {
-  const url = 'http://localhost:1221/motos'
+  const url = 'https://motoland-rest-api-dev-frxp.1.us-1.fl0.io/motos'
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
   const dispatch = useDispatch()
