@@ -4,6 +4,8 @@ import { lazy, Suspense } from 'react'
 import Navbar from './components/NavBar/Navbar'
 import Main from './routes/Main'
 import ViewCart from './routes/ViewCart'
+import useApiCall from './hooks/useApiCall'
+import { Footer } from './components/Footer'
 
 const Contact = lazy(() => import('./routes/Contact'))
 const About = lazy(() => import('./routes/About'))
@@ -12,19 +14,22 @@ const AllMotos = lazy(() => import('./routes/AllMotos'))
 const Moto = lazy(() => import('./routes/Moto'))
 
 function App() {
+  useApiCall()
+
   return (
     <BrowserRouter>
       <Suspense fallback={null}>
         <Navbar />
         <Routes>
-          <Route path="/motoland/" element={<Main />} />
-          <Route path="/motoland/motos" element={<AllMotos />} />
-          <Route path="/motoland/motos/:id" element={<Moto />} />
-          <Route path="/motoland/about" element={<About />} />
-          <Route path="/motoland/cart" element={<ViewCart />} />
-          <Route path="/motoland/contact" element={<Contact />} />
-          <Route path="/motoland/*" element={<Error />} />
+          <Route path='/' element={<Main />} />
+          <Route path='/motos' element={<AllMotos />} />
+          <Route path='/motos/:id' element={<Moto />} />
+          <Route path='/about' element={<About />} />
+          <Route path='/cart' element={<ViewCart />} />
+          <Route path='/contact' element={<Contact />} />
+          <Route path='/*' element={<Error />} />
         </Routes>
+        <Footer />
       </Suspense>
     </BrowserRouter>
   )

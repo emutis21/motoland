@@ -1,64 +1,30 @@
-import { useEffect, useState } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { helpHttp } from '../helpers/helpHttp'
 
-import { createAction, deleteAction, noAction, readAllAction, updateAction } from '../actions/crudActions'
+import { createAction, deleteAction, updateAction } from '../actions/crudActions'
 
 import CrudTable from '../components/CrudTable'
+import Header from '../components/Header'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
-import Header from '../components/Header'
 
 import '../styles/Main.scss'
-import { ToastBar, Toaster, toast } from 'react-hot-toast'
+import useApiCall from '../hooks/useApiCall'
 
 const Main = () => {
-  const state = useSelector((state) => state)
+  const cart = useSelector((state) => state.shopping.cart)
+  const db = useSelector((state) => state.crud.db)
 
   const dispatch = useDispatch()
 
-  const { cart } = state.shopping
-
-  const { db } = state.crud
-
   const [dataToEdit, setDataToEdit] = useState(null)
-
-  const [error, setError] = useState(null)
-
-  const [loading, setLoading] = useState(false)
 
   const [isModalOpen, setIsModalOpen] = useState(false)
 
   let api = helpHttp()
-  let url = 'http://localhost:5000/motos'
 
-  useEffect(() => {
-    setLoading(true)
-
-    const timeout = setTimeout(() => {
-      setLoading(false)
-      setError({ status: 'Timeout', statusText: 'Request took too long' })
-    }, 5000)
-
-    helpHttp()
-      .get(url)
-      .then((res) => {
-        clearTimeout(timeout)
-        if (!res.err) {
-          dispatch(readAllAction(res))
-          setError(null)
-        } else {
-          dispatch(noAction())
-          setError(res)
-        }
-        setLoading(false)
-      })
-      .catch((error) => {
-        clearTimeout(timeout)
-        setLoading(false)
-        setError({ status: 'Error', statusText: error.message })
-      })
-  }, [dispatch])
+  const { loading, error } = useApiCall()
 
   const createData = (data) => {
     data.id = Date.now()
@@ -119,18 +85,20 @@ const Main = () => {
   }
 
   return (
-    <main className="container">
+    <main className='container'>
       <Header changeFilters={setFilters} />
 
-      <div className="main">
-        {loading && <Loader />}
-        {error && (
-          <>
-            <Message msg={`${error.status}:${error.statusText}`} />
-            <button onClick={handleReload}>Reload</button>
-          </>
-        )}
-      </div>
+      {(loading || error) && (
+        <div className='main'>
+          {loading && <Loader />}
+          {error && (
+            <>
+              <Message msg={`${error.status}: ${error.statusText}`} />
+              <button onClick={handleReload}>Reload</button>
+            </>
+          )}
+        </div>
+      )}
 
       {db && (
         <CrudTable
@@ -141,7 +109,7 @@ const Main = () => {
           createData={createData}
           updateData={updateData}
           cart={cart}
-          state={state}
+          // state={state}
           data={filteredMotos}
           dataToEdit={dataToEdit}
           isModalOpen={isModalOpen}

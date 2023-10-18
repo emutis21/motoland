@@ -9,7 +9,7 @@ const InputField = ({
   onBlur = null,
   isValid = true,
 }) => (
-  <div className="input-box">
+  <div className='input-box'>
     <input
       type={type}
       name={name}

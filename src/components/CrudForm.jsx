@@ -1,9 +1,10 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Toaster, toast } from 'react-hot-toast'
 import { MdArrowBackIos } from 'react-icons/md'
 
 import '../styles/CrudForm.scss'
 import InputField from './InputField'
+import { AnimatePresence, motion } from 'framer-motion'
 
 const initialForm = {
   id: null,
@@ -20,11 +21,13 @@ const capitalizeFirstLetter = (str) => {
 }
 
 const requiredFields = ['content', 'name', 'description', 'city', 'price']
-const brands = ['', 'BMW', 'TVS', 'KTM', 'Kawasaki', 'Suzuki', 'Yamaha']
 
-const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit, isModalOpen, setIsModalOpen }) => {
+const CrudForm = ({ motos, createData, updateData, dataToEdit, setDataToEdit, isModalOpen, setIsModalOpen }) => {
   const [form, setForm] = useState(initialForm)
   const [isUrlValid, setIsUrlValid] = useState(true)
+
+  const brands = [...new Set(motos.filter((moto) => moto.brand).map((moto) => moto.brand))]
+  brands.unshift('Select a brand')
 
   useEffect(() => {
     setForm(dataToEdit || initialForm)
@@ -108,18 +111,38 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit, isModalOp
     setDataToEdit(null)
   }
 
+  isModalOpen
+    ? document.body.style.setProperty('overflow', 'hidden')
+    : document.body.style.setProperty('overflow', 'auto')
+
   return (
-    <div className={isModalOpen ? 'modal-container' : 'form'}>
+    <div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ ease: 'easeInOut', duration: 0.3, type: 'tween' }}
+      className={isModalOpen ? 'modal-container' : 'form'}
+      onClick={(e) => {
+        if (e.target.classList.contains('modal-container')) {
+          setIsModalOpen(false)
+          handleReset()
+        }
+      }}
+    >
       {!isModalOpen && <h3>Add a new bike</h3>}
       {!isModalOpen && <button onClick={() => setIsModalOpen(true)}>Open</button>}
       {isModalOpen && (
-        <div className={dataToEdit ? 'img-modal' : 'modal'}>
+        <motion.div
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          transition={{ ease: 'backOut', duration: 0.3, type: 'tween' }}
+          className={dataToEdit ? 'img-modal' : 'modal'}
+        >
           {dataToEdit && (
-            <div className="img">
-              <img src={form.content} alt="Bike" />
+            <div className='img'>
+              <img src={form.content} alt='Bike' />
             </div>
           )}
-          <form className="modal-content" onSubmit={handleSubmit}>
+          <form className='modal-content' onSubmit={handleSubmit}>
             <fieldset>
               <legend>
                 <MdArrowBackIos
@@ -127,54 +150,54 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit, isModalOp
                     setIsModalOpen(false)
                   }}
                 />
-                {dataToEdit ? 'Edit your bike' : 'Add a new bike'}
+                <h3>{dataToEdit ? 'Edit your bike' : 'Add a new bike'}</h3>
               </legend>
               <InputField
-                type="text"
-                name="content"
-                label="Photo (url)"
+                type='text'
+                name='content'
+                label='Photo (url)'
                 value={form.content}
                 onChange={handleChange}
                 required
                 isValid={isUrlValid}
                 autoFocus
-                onBlur={form.content && validateUrl}
+                // onBlur={form.content && validateUrl}
               />
-              <InputField type="text" name="name" label="Name" value={form.name} onChange={handleChange} required />
+              <InputField type='text' name='name' label='Name' value={form.name} onChange={handleChange} required />
               <InputField
-                type="text"
-                name="description"
-                label="Description"
+                type='text'
+                name='description'
+                label='Description'
                 value={form.description}
                 onChange={handleChange}
                 required
               />
-              <InputField type="text" name="city" label="City" value={form.city} onChange={handleChange} required />
-              <div className="input-box">
-                <select name="brand" onChange={handleChange} value={form.brand} required>
-                  {brands.map((brand) => (
-                    <option key={brand} value={brand}>
-                      {brand || 'Brand'}
+              <InputField type='text' name='city' label='City' value={form.city} onChange={handleChange} required />
+              <div className='input-box'>
+                <select name='brand' onChange={handleChange} value={form.brand} required>
+                  {brands.map((brand, index) => (
+                    <option key={index} value={brand}>
+                      {brand}
                     </option>
                   ))}
                 </select>
               </div>
               <InputField
-                type="number"
-                name="price"
-                label="Price"
+                type='number'
+                name='price'
+                label='Price'
                 value={form.price}
                 onChange={handleChange}
                 required
               />
             </fieldset>
-            <button type="submit">Send</button>
-            <button type="reset" onClick={handleReset}>
+            <button type='submit'>Send</button>
+            <button type='reset' onClick={handleReset}>
               Clear
             </button>
-            <Toaster position="bottom-right" reverseOrder={true} />
+            <Toaster position='bottom-right' reverseOrder={true} />
           </form>
-        </div>
+        </motion.div>
       )}
     </div>
   )

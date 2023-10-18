@@ -2,7 +2,7 @@ import { Toaster, toast } from 'react-hot-toast'
 
 const About = () => {
   return (
-    <div className="container">
+    <div className='container'>
       <h1>About</h1>
 
       <button
@@ -12,7 +12,7 @@ const About = () => {
       >
         errror
       </button>
-      <Toaster position="top-right" reverseOrder={true} />
+      <Toaster position='top-right' reverseOrder={true} />
     </div>
   )
 }

@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom'
 const MotoCartItem = ({ el, delOneFromCart, delAllFromCart }) => {
   let { id, content, name, price, quantity } = el
   return (
-    <li className="cartList">
+    <li className='cartList'>
       <div>
         <Link to={`motos/${id}`}>
           <img src={content} alt={name} />
         </Link>
-        <Link to={`motos/${id}`} className="button link">
+        <Link to={`motos/${id}`} className='button link'>
           See details <TbChevronRight />
         </Link>
       </div>
@@ -18,7 +18,7 @@ const MotoCartItem = ({ el, delOneFromCart, delAllFromCart }) => {
         <p>
           ${price} x {quantity} = ${price * quantity}
         </p>
-        <div className="buttons">
+        <div className='buttons'>
           <button onClick={() => delOneFromCart(id)}>Remove One</button>
           <button onClick={() => delAllFromCart(id, true)}>Delete All</button>
         </div>

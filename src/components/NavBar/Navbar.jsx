@@ -6,27 +6,35 @@ import NavLinks from './NavLinks'
 import { RiMotorbikeFill } from 'react-icons/ri'
 import { useSelector, useDispatch } from 'react-redux'
 import { useId, useState } from 'react'
+import Cart from '../Cart'
 
 function Navbar() {
-  const state = useSelector((state) => state)
-  const cart = state.shopping.cart
+  const useSelectorCart = (state) => state.shopping.cart
+
+  const cart = useSelector(useSelectorCart)
   const cartCheckboxId = useId()
   const dispatch = useDispatch()
 
   const [cartIsOpen, setCartIsOpen] = useState(false)
   return (
-    <header className="header">
-      <nav className="nav">
-        <a translate="no" href="/motoland" className="nav__logo">
-          <RiMotorbikeFill /> Motoland
-        </a>
-        <div className="navigation">
-          <NavLinks
+    <header className='header'>
+      <nav className='nav'>
+        <div className='nav__logo'>
+          <a translate='no' href='/' className='nav__logo__content'>
+            <RiMotorbikeFill /> Motoland
+          </a>
+        </div>
+        <div className='navigation'>
+          <NavLinks />
+        </div>
+        <div className='nav__cart'>
+          {/* <div className='bg-none' /> */}
+          <Cart
             cart={cart}
             cartCheckboxId={cartCheckboxId}
-            dispatch={dispatch}
             cartIsOpen={cartIsOpen}
             setCartIsOpen={setCartIsOpen}
+            dispatch={dispatch}
           />
         </div>
         <MobileNavigation />

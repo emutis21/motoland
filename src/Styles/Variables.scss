@@ -104,3 +104,14 @@ $spinner-animation-duration: 1.2s;
   background-color: $dark-blue-color !important;
   color: $white-color !important;
 }
+
+.bg-none {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100vw;
+  min-height: 100vh;
+  backdrop-filter: blur(8px);
+  z-index: 700;
+
+}

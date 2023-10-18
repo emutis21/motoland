@@ -5,65 +5,78 @@
   padding: 0;
   margin: 0;
 }
+
 html {
   scroll-behavior: smooth;
+  scrollbar-gutter: stable;
 }
+
 body {
   font-family: $body-font;
   font-size: $normal-font-size;
   background-color: $body-color;
   color: $light-gray-color;
 }
+
 ::-webkit-scrollbar {
-  width: 1rem;
+  width: 0.6rem;
+
+  &-track {
+    background-color: transparent;
+  }
+
+  &-thumb {
+    border-radius: 0.3rem;
+    background-color: $light-blue-color;
+  }
 }
-::-webkit-scrollbar-track {
-  background-color: $body-color;
-  border: 1px solid $navbar-color;
-  border-radius: 0.2rem;
-}
-::-webkit-scrollbar-thumb {
-  border-radius: 0.3rem;
-  border: 1px solid $dark-blue-color;
-  background-color: $light-gray-color;
-}
+
 h1,
 h2,
 h3 {
   color: $white-color;
   font-weight: $font-semi-bold;
 }
+
 ul {
   list-style: none;
 }
+
 a {
   text-decoration: none;
 }
+
 img {
   max-width: 100%;
   height: auto;
 }
+
 .title {
   margin: 4rem 0;
   text-align: center;
 }
+
 .container {
   max-width: 980px;
   margin: 0 auto;
+
   h1 {
-    padding-top: 4rem;
+    padding-top: 2rem;
     text-align: center;
     margin: 2rem;
   }
 }
+
 .msg {
   background-color: $red-color;
   padding: 1rem;
   margin: 2rem 0;
 }
+
 button {
   @include button-styles;
   border-color: $dark-blue-color;
+
   &:hover {
     background-color: $light-blue-color;
   }
@@ -72,6 +85,7 @@ button {
 .button {
   @include button-styles;
   border-color: $green-color;
+
   &:hover {
     background-color: $light-green-color;
   }
@@ -80,16 +94,19 @@ button {
 img {
   @include image-styles;
 }
+
 input {
   color: $white-color;
   caret-color: $dark-blue-color;
   accent-color: $light-blue-color;
 }
+
 input[type='number']::-webkit-inner-spin-button,
 input[type='number']::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
 @media screen and (max-width: 1020px) {
   .container {
     margin: 0 2.3rem;

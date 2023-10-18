@@ -11,7 +11,7 @@ const ViewCart = () => {
 
   console.log(cart)
   return (
-    <div className="container">
+    <div className='container'>
       <h1>Cart</h1>
       <Cart
         cart={cart}

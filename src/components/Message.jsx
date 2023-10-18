@@ -1,6 +1,6 @@
 const Message = ({ msg, bgColor }) => {
   return (
-    <div className="msg">
+    <div className='msg'>
       <h2>{msg}</h2>
     </div>
   )

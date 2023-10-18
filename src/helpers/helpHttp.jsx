@@ -1,5 +1,5 @@
 export const helpHttp = () => {
-  const customFetch = (endpoint, options) => {
+  const customFetch = async (endpoint, options) => {
     const defaultHeader = {
       accept: 'application/json',
     }
@@ -15,17 +15,18 @@ export const helpHttp = () => {
 
     setTimeout(() => controller.abort(), 3000)
 
-    return fetch(endpoint, options)
-      .then((res) =>
-        res.ok
-          ? res.json()
-          : Promise.reject({
-              err: true,
-              status: res.status || '00',
-              statusText: res.statusText || 'Ocurrió un error',
-            }),
-      )
-      .catch((err) => err)
+    try {
+      const res = await fetch(endpoint, options)
+      return await (res.ok
+        ? res.json()
+        : Promise.reject({
+            err: true,
+            status: res.status || '00',
+            statusText: res.statusText || 'Ocurrió un error',
+          }))
+    } catch (err) {
+      return err
+    }
   }
 
   const get = (url, options = {}) => customFetch(url, options)

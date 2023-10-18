@@ -4,8 +4,7 @@ import { useParams } from 'react-router-dom'
 
 const Moto = () => {
   const { id } = useParams()
-  const state = useSelector((state) => state)
-  const db = state.crud.db
+  const db = useSelector((state) => state.crud.db)
   useEffect(() => {
     document.title = `Eu ${id}`
   }, [id])
@@ -15,7 +14,7 @@ const Moto = () => {
       {db
         .filter((moto) => moto.id === parseInt(id))
         .map((moto) => (
-          <article key={moto.id} className="container motoOne">
+          <article key={moto.id} className='container motoOne'>
             <h1>
               {moto.brand} <br />
               {moto.name}

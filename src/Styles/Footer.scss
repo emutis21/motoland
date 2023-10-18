@@ -1,0 +1,11 @@
+@import './Variables';
+
+footer {
+  margin: 2rem 0 0 0;
+  height: 10rem;
+  background-color: darken($light-green-color, 1);
+  color: $navbar-color;
+  width: 100%;
+  display: grid;
+  place-items: center;
+}

@@ -1,11 +1,14 @@
 import '../styles/Cart.scss'
 
+import { motion } from 'framer-motion'
+
 import MotoCartItem from './MotoCartItem'
 
-import { RiCloseLine, RiLuggageCartFill } from 'react-icons/ri'
+import { forwardRef, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { clearCart, delFromCart } from '../actions/shoppingActions'
-import { useEffect, useRef, forwardRef } from 'react'
+import { CartIcon } from './Icons/CartIcon'
+import { CloseIcon } from './Icons/CloseIcon'
 
 const Cart = forwardRef(({ cart, dispatch, cartCheckboxId, cartIsOpen, setCartIsOpen }, ref) => {
   const cartLength = cart.length
@@ -23,7 +26,7 @@ const Cart = forwardRef(({ cart, dispatch, cartCheckboxId, cartIsOpen, setCartIs
   )
 
   const viewCartButton = (
-    <Link className="button" to="motoland/cart" onClick={() => setCartIsOpen(false)}>
+    <Link className='button' to='cart' onClick={() => setCartIsOpen(false)}>
       View Cart
     </Link>
   )
@@ -44,57 +47,63 @@ const Cart = forwardRef(({ cart, dispatch, cartCheckboxId, cartIsOpen, setCartIs
     }
   }, [setCartIsOpen])
 
+  cartIsOpen ? (document.body.style.overflow = 'hidden') : (document.body.style.overflow = 'auto')
+
   return (
     <>
-      <label className="cart-button" htmlFor={cartCheckboxId}>
-        {cartIsOpen ? (
-          <RiCloseLine className="cart-button-close" />
-        ) : (
-          <RiLuggageCartFill className="cart-button-close" />
-        )}
+      <label className='cart-button' htmlFor={cartCheckboxId}>
+        {cartIsOpen ? <CloseIcon /> : <CartIcon />}
         {cartIsOpen || cartTotalItems === 0 || (
-          <div className="counter">{cartTotalItems > 9 ? '9+' : cartTotalItems}</div>
+          <div className='counter'>{cartTotalItems > 9 ? '9+' : cartTotalItems}</div>
         )}
       </label>
 
       <input
-        type="checkbox"
+        type='checkbox'
         id={cartCheckboxId}
         hidden
         checked={cartIsOpen}
         onChange={(e) => setCartIsOpen(e.target.checked)}
       />
 
-      <aside ref={cartRef} className="cart">
-        {cartLength > 0 && (
-          <div>
-            <h2>
-              Your total is: <br />
-              <span> ${cartTotalPrice}</span>
-            </h2>
-          </div>
-        )}
-        <ul>
-          {cartLength > 0 ? (
-            cart.map((el, index) => (
-              <MotoCartItem
-                key={index}
-                el={el}
-                delOneFromCart={() => dispatch(delFromCart(el.id))}
-                delAllFromCart={() => dispatch(delFromCart(el.id, true))}
-              />
-            ))
-          ) : (
-            <h2>Your cart is empty</h2>
+      {cartIsOpen && (
+        <motion.aside
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.1, ease: 'linear' }}
+          ref={cartRef}
+          className='cart'
+        >
+          {cartLength > 0 && (
+            <header>
+              <h2>
+                Your total is:
+                <span> ${cartTotalPrice}</span>
+              </h2>
+            </header>
           )}
-        </ul>
-        {cartLength > 0 && (
-          <div>
-            {viewCartButton}
-            {clearCartButton}
-          </div>
-        )}
-      </aside>
+          <ul>
+            {cartLength > 0 ? (
+              cart.map((el, index) => (
+                <MotoCartItem
+                  key={index}
+                  el={el}
+                  delOneFromCart={() => dispatch(delFromCart(el.id))}
+                  delAllFromCart={() => dispatch(delFromCart(el.id, true))}
+                />
+              ))
+            ) : (
+              <h2>Your cart is empty</h2>
+            )}
+          </ul>
+          {cartLength > 0 && (
+            <div>
+              {viewCartButton}
+              {clearCartButton}
+            </div>
+          )}
+        </motion.aside>
+      )}
     </>
   )
 })

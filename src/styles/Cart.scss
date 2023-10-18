@@ -1,18 +1,17 @@
-@import './Variables.scss';
+@import './Variables';
 
 .cart {
   background-color: darken($dark-blue-color, 26);
-  display: none;
-  position: fixed;
+  position: absolute;
   right: 0;
   top: 0;
   max-width: 35%;
-  height: 0;
-  transform: translateY(100%);
-  transition: all 1s ease;
+  z-index: -1;
+
   a {
     @include flex-center;
   }
+
   div {
     @include flex-center;
     &:last-child {
@@ -60,10 +59,10 @@
 .cart-button {
   @include flex-center;
   position: relative;
-
   cursor: pointer;
   border-radius: 0.2rem;
   transition: all 015s ease-in-out;
+
   .counter {
     position: absolute;
     top: 4px;
@@ -76,6 +75,7 @@
     border-radius: 50%;
     transform: translate(50%, -50%);
   }
+
   .cart-button-close {
     font-size: $h1-font-size;
     border-radius: 0.2rem;
@@ -85,6 +85,7 @@
     background-color: $light-blue-color;
     color: $container-color;
     transition: all 0.15s ease-in-out;
+
     &:hover {
       color: $white-color;
       background-color: $dark-blue-color;
@@ -94,11 +95,12 @@
       }
     }
   }
+
   & ~ input:checked ~ .cart {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: auto;
+    height: min-content;
     max-height: 85vh;
     top: $header-height;
     width: 100%;
@@ -106,9 +108,8 @@
     border-bottom: 0.5rem solid darken($dark-blue-color, 16);
     border-left: 0.5rem solid darken($dark-blue-color, 16);
     border-radius: 0.4rem;
-    transform: translateY(0);
-    transition: all 1s ease;
-    z-index: $z-tooltip;
+    z-index: -1;
+    margin: 0 12px 0 0;
 
     h2 {
       margin: 1rem;
@@ -119,6 +120,16 @@
       display: flex;
       flex-direction: column;
       flex-flow: wrap;
+
+      scrollbar-gutter: stable;
+
+      &::-webkit-scrollbar {
+        width: 0.4rem;
+
+        &-thumb {
+          background: $light-green-color;
+        }
+      }
 
       .cartList {
         flex: 0 1 auto;
@@ -138,7 +149,7 @@
 
   cursor: pointer;
   border-radius: 0.2rem;
-  transition: all 015s ease-in-out;
+
   .counter {
     position: absolute;
     top: 4px;
@@ -151,6 +162,7 @@
     border-radius: 50%;
     transform: translate(50%, -50%);
   }
+
   .cart-button-close {
     font-size: $h1-font-size;
     border-radius: 0.2rem;
@@ -160,6 +172,7 @@
     background-color: $light-blue-color;
     color: $container-color;
     transition: all 0.15s ease-in-out;
+
     &:hover {
       color: $white-color;
       background-color: $dark-blue-color;
@@ -169,21 +182,20 @@
       }
     }
   }
+
   & ~ input:checked ~ .cart {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: auto;
-    max-height: 85vh;
     top: $header-height;
     width: 100%;
     padding: 1%;
     border-bottom: 0.5rem solid darken($dark-blue-color, 16);
     border-left: 0.5rem solid darken($dark-blue-color, 16);
     border-radius: 0.4rem;
-    transform: translateY(0);
     transition: all 1s ease;
-    z-index: $z-tooltip;
+    z-index: -1;
 
     h2 {
       margin: 1rem;
@@ -207,6 +219,7 @@
     }
   }
 }
+
 @media screen and (max-width: 767px) {
   .cart {
     max-width: none;

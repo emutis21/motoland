@@ -26,22 +26,21 @@ const CrudTable = ({
   return (
     <>
       <ul>
-        <div className="motos">
-          {dataLength &&
-            data.map((el) => (
-              <CrudTableRow
-                addToCart={() => dispatch(addToCart(el))}
-                cartCheckboxId={cartCheckboxId}
-                key={el.id}
-                el={el}
-                setDataToEdit={setDataToEdit}
-                deleteData={deleteData}
-                setIsModalOpen={setIsModalOpen}
-              />
-            ))}
+        <div className='motos'>
+          {data.slice(0, 5).map((el) => (
+            <CrudTableRow
+              addToCart={() => dispatch(addToCart(el))}
+              cartCheckboxId={cartCheckboxId}
+              key={el.id}
+              el={el}
+              setDataToEdit={setDataToEdit}
+              deleteData={deleteData}
+              setIsModalOpen={setIsModalOpen}
+            />
+          ))}
           {dataLength && (
-            <li className="all-motos">
-              <Link to="motos" className="button link">
+            <li className='all-motos'>
+              <Link to='motos' className='button link'>
                 View all Motos <TbChevronRight />
               </Link>
             </li>
@@ -49,8 +48,9 @@ const CrudTable = ({
         </div>
       </ul>
 
-      <section className="section">
+      <section className='section'>
         <CrudForm
+          motos={data}
           createData={createData}
           updateData={updateData}
           dataToEdit={dataToEdit}

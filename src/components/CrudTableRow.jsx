@@ -15,7 +15,7 @@ const CrudTableRow = ({ el, setDataToEdit, deleteData, addToCart, setIsModalOpen
       </>
 
       <div
-        className="add-to-cart"
+        className='add-to-cart'
         // htmlFor={cartIsOpen ? null : cartCheckboxId}
         onClick={() => addToCart(el)}
       >

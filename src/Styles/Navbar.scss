@@ -1,4 +1,4 @@
-@import './Variables.scss';
+@import './Variables';
 
 .header {
   width: 100%;
@@ -6,7 +6,7 @@
   box-shadow: 0 0.25rem 1.8rem rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(8px);
   border: 1px solid rgba(0, 0, 0, 0.04);
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   z-index: $z-fixed;
@@ -20,7 +20,21 @@
   margin: 0 2rem;
 }
 
+.nav__logo {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  width: min-content;
+}
+
 .nav__logo,
+.navigation,
+.nav__cart {
+  flex-basis: 0;
+  flex-grow: 1;
+}
+
+.nav__logo__content,
 .nav__toggle {
   @include flex-center;
   column-gap: 0.25rem;
@@ -33,6 +47,12 @@
   &:hover {
     color: $light-green-color;
   }
+}
+
+.nav__cart {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .nav__list {

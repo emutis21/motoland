@@ -1,39 +1,86 @@
 @import './Variables.scss';
 
-.motos {
-  display: flex;
-  overflow: auto;
-  scroll-snap-type: x mandatory;
-  padding: 1.5rem 0;
-  scroll-padding: 0.5rem;
+ul {
+  .motos {
+    display: flex;
+    overflow: auto;
+    scroll-snap-type: x mandatory;
+    padding: 1.5rem 0;
+    scroll-padding: 0.5rem;
 
-  .add-to-cart {
-    cursor: pointer;
-    font-size: 1.3rem;
-    &:hover {
-      color: $light-blue-color;
+    &::-webkit-scrollbar {
+      height: 0.6rem;
+
+      &-thumb {
+        background: $light-green-color;
+      }
     }
-  }
 
-  li {
-    flex: 0 0 28%;
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-    text-align: center;
-    font-weight: $font-semi-bold;
-    > * {
-      padding: 0.5rem 0;
+    .add-to-cart {
+      cursor: pointer;
+      font-size: 1.3rem;
+      &:hover {
+        color: $light-blue-color;
+      }
     }
-  }
 
-  .all-motos {
-    display: grid;
-    place-items: center;
-    > * {
-      padding: 1.5rem 2rem;
+    li {
+      flex: 0 0 28%;
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+      text-align: center;
+      font-weight: $font-semi-bold;
+      > * {
+        padding: 0.5rem 0;
+      }
+    }
+
+    .all-motos {
       display: grid;
       place-items: center;
-      gap: 0.5rem;
+      > * {
+        padding: 1.5rem 2rem;
+        display: grid;
+        place-items: center;
+        gap: 0.5rem;
+      }
+    }
+  }
+  .motos {
+    display: flex;
+    overflow: auto;
+    scroll-snap-type: x mandatory;
+    padding: 1.5rem 0;
+    scroll-padding: 0.5rem;
+
+    .add-to-cart {
+      cursor: pointer;
+      font-size: 1.3rem;
+      &:hover {
+        color: $light-blue-color;
+      }
+    }
+
+    li {
+      flex: 0 0 28%;
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+      text-align: center;
+      font-weight: $font-semi-bold;
+      > * {
+        padding: 0.5rem 0;
+      }
+    }
+
+    .all-motos {
+      display: grid;
+      place-items: center;
+      > * {
+        padding: 1.5rem 2rem;
+        display: grid;
+        place-items: center;
+        gap: 0.5rem;
+      }
     }
   }
 }
