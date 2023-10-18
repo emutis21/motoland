@@ -1,4 +1,4 @@
-import '../../styles/Navbar.scss'
+import '../../style/Navbar.scss'
 
 import MobileNavigation from './MobileNavigation'
 import NavLinks from './NavLinks'

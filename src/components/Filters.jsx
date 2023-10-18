@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import '../styles/Filters.scss'
+import '../style/Filters.scss'
 
 export function Filters({ onChange }) {
   const [minPrice, setMinPrice] = useState(0)

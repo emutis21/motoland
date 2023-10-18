@@ -9,8 +9,7 @@
     "build": "vite build",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "fake-api": "json-server --watch src/api/db.json --port 5000",
-    "deploy": "gh-pages -d dist"
+    "fake-api": "json-server --watch src/api/db.json --port 5000"
   },
   "dependencies": {
     "framer-motion": "^10.16.4",

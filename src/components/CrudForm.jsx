@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Toaster, toast } from 'react-hot-toast'
 import { MdArrowBackIos } from 'react-icons/md'
 
-import '../styles/CrudForm.scss'
+import '../style/CrudForm.scss'
 import InputField from './InputField'
 import { AnimatePresence, motion } from 'framer-motion'
 

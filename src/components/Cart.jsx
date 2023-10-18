@@ -1,4 +1,4 @@
-import '../styles/Cart.scss'
+import '../style/Cart.scss'
 
 import { motion } from 'framer-motion'
 

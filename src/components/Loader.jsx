@@ -1,4 +1,4 @@
-import '../styles/Loader.scss'
+import '../style/Loader.scss'
 
 const Loader = () => {
   const loaderElements = Array.from({ length: 12 }, (_, index) => <div key={index}></div>)

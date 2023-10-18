@@ -9,7 +9,7 @@ import Header from '../components/Header'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
 
-import '../styles/Main.scss'
+import '../style/Main.scss'
 import useApiCall from '../hooks/useApiCall'
 
 const Main = () => {

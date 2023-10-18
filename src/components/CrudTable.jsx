@@ -6,7 +6,7 @@ import { useId } from 'react'
 import CrudForm from './CrudForm'
 import CrudTableRow from './CrudTableRow'
 
-import '../styles/CrudTable.scss'
+import '../style/CrudTable.scss'
 
 const CrudTable = ({
   data,
