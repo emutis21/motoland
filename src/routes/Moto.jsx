@@ -17,9 +17,9 @@ const Moto = () => {
           <article key={moto.id} className='container motoOne'>
             <h1>
               {moto.brand} <br />
-              {moto.name}
+              {moto.model}
             </h1>
-            <img src={moto.content} alt={moto.name} />
+            <img src={moto.img} alt={moto.model} />
             <p>{moto.city}</p>
             <p>{moto.description}</p>
             <p>{moto.price}</p>

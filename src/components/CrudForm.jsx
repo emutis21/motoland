@@ -50,7 +50,7 @@ const CrudForm = ({ motos, createData, updateData, dataToEdit, setDataToEdit, is
   }
 
   const validateUrl = () => {
-    setIsUrlValid(isURL(form.content))
+    setIsUrlValid(isURL(form.img))
   }
 
   const handleSubmit = (e) => {
@@ -139,7 +139,7 @@ const CrudForm = ({ motos, createData, updateData, dataToEdit, setDataToEdit, is
         >
           {dataToEdit && (
             <div className='img'>
-              <img src={form.content} alt='Bike' />
+              <img src={form.img} alt='Bike' />
             </div>
           )}
           <form className='modal-content' onSubmit={handleSubmit}>
@@ -156,14 +156,14 @@ const CrudForm = ({ motos, createData, updateData, dataToEdit, setDataToEdit, is
                 type='text'
                 name='content'
                 label='Photo (url)'
-                value={form.content}
+                value={form.img}
                 onChange={handleChange}
                 required
                 isValid={isUrlValid}
                 autoFocus
-                // onBlur={form.content && validateUrl}
+                // onBlur={form.img && validateUrl}
               />
-              <InputField type='text' name='name' label='Name' value={form.name} onChange={handleChange} required />
+              <InputField type='text' name='name' label='Name' value={form.model} onChange={handleChange} required />
               <InputField
                 type='text'
                 name='description'

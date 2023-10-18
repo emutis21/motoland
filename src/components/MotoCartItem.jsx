@@ -2,19 +2,19 @@ import { TbChevronRight } from 'react-icons/tb'
 import { Link } from 'react-router-dom'
 
 const MotoCartItem = ({ el, delOneFromCart, delAllFromCart }) => {
-  let { id, content, name, price, quantity } = el
+  let { id, img, model, price, quantity } = el
   return (
     <li className='cartList'>
       <div>
         <Link to={`motos/${id}`}>
-          <img src={content} alt={name} />
+          <img src={img} alt={model} />
         </Link>
         <Link to={`motos/${id}`} className='button link'>
           See details <TbChevronRight />
         </Link>
       </div>
       <div>
-        <h2>{name}</h2>
+        <h2>{model}</h2>
         <p>
           ${price} x {quantity} = ${price * quantity}
         </p>

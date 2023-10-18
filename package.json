@@ -1,7 +1,7 @@
 {
   "name": "motoland",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "homepage": "https://emutis21.github.io/motoland/",
   "scripts": {
