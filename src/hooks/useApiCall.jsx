@@ -4,7 +4,7 @@ import { helpHttp } from '../helpers/helpHttp'
 import { readAllAction, noAction } from '../actions/crudActions'
 
 const useApiCall = () => {
-  const url = 'https://motoland-rest-api-dev-frxp.1.us-1.fl0.io/motos'
+  const url = import.meta.env.VITE_API_MOTOLAND_MOTOS
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
   const dispatch = useDispatch()

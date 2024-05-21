@@ -1,0 +1,32 @@
+@import './Variables';
+
+main {
+  display: grid;
+  place-items: center;
+  height: calc(100vh - 8rem);
+
+  h1 {
+    font-size: $h1-font-size;
+  }
+
+  form {
+    @include flex-center;
+    flex-direction: column;
+    gap: 1rem;
+
+    input {
+      width: 100%;
+      padding: 0.5rem;
+      font-size: $h3-font-size;
+    }
+
+    button {
+      padding: 0.5rem;
+      font-size: $h3-font-size;
+    }
+  }
+
+  a {
+    font-size: $h3-font-size;
+  }
+}

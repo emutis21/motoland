@@ -6,6 +6,9 @@ import Main from './routes/Main'
 import ViewCart from './routes/ViewCart'
 import useApiCall from './hooks/useApiCall'
 import { Footer } from './components/Footer'
+import Login from './auth/Login'
+import Register from './auth/Register'
+
 
 const Contact = lazy(() => import('./routes/Contact'))
 const About = lazy(() => import('./routes/About'))
@@ -28,6 +31,8 @@ function App() {
           <Route path='/cart' element={<ViewCart />} />
           <Route path='/contact' element={<Contact />} />
           <Route path='/*' element={<Error />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
         <Footer />
       </Suspense>
