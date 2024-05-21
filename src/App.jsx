@@ -9,7 +9,6 @@ import { Footer } from './components/Footer'
 import Login from './auth/Login'
 import Register from './auth/Register'
 
-
 const Contact = lazy(() => import('./routes/Contact'))
 const About = lazy(() => import('./routes/About'))
 const Error = lazy(() => import('./routes/Error'))
