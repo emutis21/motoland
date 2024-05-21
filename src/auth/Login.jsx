@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { login } from '../api/auth';
 
-import '../style/auth.scss'
+import '../style/Auth.scss'
 
 const Login = () => {
   const [email, setEmail] = useState('');
